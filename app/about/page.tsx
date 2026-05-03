@@ -1,57 +1,140 @@
-export default function AboutPage() {
+const focusAreas = [
+    {
+      title: "Backend Development",
+      description:
+        "Designing API routes, service logic, database workflows, and maintainable server-side systems.",
+    },
+    {
+      title: "AI-Powered Applications",
+      description:
+        "Building tools that use AI for question answering, document processing, and workflow automation.",
+    },
+    {
+      title: "Full-Stack Shipping",
+      description:
+        "Turning practical ideas into usable products with frontend, backend, deployment, and iteration.",
+    },
+  ];
+  
+  const tools = [
+    "Python",
+    "C++",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "FastAPI",
+    "MySQL",
+    "PostgreSQL",
+    "Git",
+    "GitHub",
+    "Vercel",
+    "Tencent Cloud",
+  ];
+  
+  export default function AboutPage() {
     return (
-      <main className="min-h-screen bg-white px-8 py-16 text-black">
-        <section className="mx-auto max-w-4xl">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-gray-500">
-            About Me
-          </p>
+      <main className="overflow-hidden px-8 py-16 text-black">
+        <section className="mx-auto max-w-6xl">
+          <section className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 p-8 shadow-2xl shadow-gray-200/70 backdrop-blur-xl md:p-12">
+            <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-sky-200/70 blur-3xl" />
+            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-indigo-200/70 blur-3xl" />
   
-          <h1 className="mt-6 text-4xl font-bold tracking-tight">
-            I am a software engineering-focused student building backend systems,
-            APIs, and AI-powered applications.
-          </h1>
+            <div className="relative grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-gray-500">
+                  About Me
+                </p>
   
-          <div className="mt-10 space-y-6 text-lg leading-8 text-gray-700">
-            <p>
-              I am a University of Waterloo student interested in software
-              engineering, backend development, API design, databases, and
-              AI-powered tools.
-            </p>
+                <h1 className="mt-6 text-5xl font-black tracking-tight text-gray-950 md:text-6xl">
+                  I build practical software with backend, AI, and full-stack thinking.
+                </h1>
   
-            <p>
-              My projects focus on turning practical ideas into working software,
-              including educational AI platforms, document automation tools,
-              backend-driven workflow systems, and database-centered applications.
-            </p>
+                <div className="mt-8 space-y-5 text-lg leading-8 text-gray-600">
+                  <p>
+                    I am a University of Waterloo student interested in software
+                    engineering, backend development, API design, databases, and
+                    AI-powered tools.
+                  </p>
   
-            <p>
-              I enjoy building systems that are clear, maintainable, and useful in
-              real workflows. I am especially interested in backend architecture,
-              SQL databases, FastAPI, React, Next.js, and cloud deployment.
-            </p>
-          </div>
+                  <p>
+                    My projects focus on turning practical ideas into working
+                    software, including educational AI platforms, document
+                    automation tools, backend workflow systems, and database-driven
+                    applications.
+                  </p>
+                </div>
+              </div>
   
-          <section className="mt-14 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-gray-200 p-6">
-              <h2 className="text-xl font-semibold">Technical Focus</h2>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-700">
-                <li>Backend API development</li>
-                <li>SQL database design</li>
-                <li>AI-powered applications</li>
-                <li>Full-stack web development</li>
-                <li>Cloud deployment and project shipping</li>
-              </ul>
+              <div className="rounded-[2rem] bg-gray-950 p-6 text-white shadow-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-400">
+                  Profile
+                </p>
+  
+                <div className="mt-6 space-y-4">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm text-gray-400">Focus</p>
+                    <p className="mt-1 font-semibold">Backend · API · AI Tools</p>
+                  </div>
+  
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm text-gray-400">Current Stack</p>
+                    <p className="mt-1 font-semibold">Next.js · FastAPI · SQL</p>
+                  </div>
+  
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-sm text-gray-400">Goal</p>
+                    <p className="mt-1 font-semibold">
+                      Ship useful, maintainable products
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </section>
   
-            <div className="rounded-2xl border border-gray-200 p-6">
-              <h2 className="text-xl font-semibold">Tools I Use</h2>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-700">
-                <li>Python, C++, JavaScript, TypeScript</li>
-                <li>FastAPI, React, Next.js</li>
-                <li>MySQL, PostgreSQL</li>
-                <li>Git, GitHub, VSCode</li>
-                <li>Vercel, Tencent Cloud, Ubuntu</li>
-              </ul>
+          <section className="mt-10 grid gap-6 md:grid-cols-3">
+            {focusAreas.map((area) => (
+              <div
+                key={area.title}
+                className="rounded-[2rem] border border-white/70 bg-white/80 p-7 shadow-xl shadow-gray-200/70 backdrop-blur transition hover:-translate-y-1 hover:shadow-2xl"
+              >
+                <div className="mb-5 h-12 w-12 rounded-2xl bg-black" />
+                <h2 className="text-xl font-black text-gray-950">{area.title}</h2>
+                <p className="mt-4 text-sm leading-7 text-gray-600">
+                  {area.description}
+                </p>
+              </div>
+            ))}
+          </section>
+  
+          <section className="mt-10 rounded-[2rem] border border-white/70 bg-white/80 p-8 shadow-xl shadow-gray-200/70 backdrop-blur md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  Technical Toolbox
+                </p>
+  
+                <h2 className="mt-4 text-3xl font-black text-gray-950">
+                  Tools I use to build and ship projects.
+                </h2>
+  
+                <p className="mt-5 leading-8 text-gray-600">
+                  I like working with tools that help me move from idea to
+                  working product quickly while keeping the codebase clear and
+                  maintainable.
+                </p>
+              </div>
+  
+              <div className="flex flex-wrap gap-3">
+                {tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
           </section>
         </section>
