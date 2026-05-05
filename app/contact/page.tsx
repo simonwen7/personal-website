@@ -1,27 +1,27 @@
 const contactLinks = [
     {
       title: "Email",
-      value: "your-email@example.com",
+      value: "simonwensw7@gmail.com",
       description: "Best for internship, co-op, and project opportunities.",
-      href: "mailto:your-email@example.com",
+      href: "mailto:simonwensw7@gmail.com",
     },
     {
       title: "LinkedIn",
       value: "Connect with me",
       description: "View my professional profile and experience.",
-      href: "https://www.linkedin.com/",
+      href: "https://www.linkedin.com/in/xiemin-wen-40a1742a7",
     },
     {
       title: "GitHub",
       value: "View my code",
       description: "Explore my software engineering projects and repositories.",
-      href: "https://github.com/",
+      href: "https://github.com/simonwen7",
     },
     {
       title: "Resume",
       value: "Download resume",
       description: "See my technical skills, experience, and selected projects.",
-      href: "/resume",
+      href: "/resume.pdf",
     },
   ];
   
@@ -75,7 +75,7 @@ const contactLinks = [
               </p>
   
               <a
-                href="mailto:your-email@example.com"
+                href="mailto:simonwensw7@gmail.com"
                 className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition hover:-translate-y-1 hover:bg-gray-100"
               >
                 Send Email
@@ -115,4 +115,3 @@ const contactLinks = [
       </main>
     );
   }
-  

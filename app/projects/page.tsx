@@ -9,13 +9,13 @@ const projects = [
       status: "Case Study Ready",
     },
     {
-      title: "APA Formatter",
+      title: "APA Doc Formatter",
       category: "Document Automation",
       description:
-        "A document analysis and formatting tool that helps detect and fix APA-style issues in Word documents.",
-      tech: ["FastAPI", "Python", "python-docx", "DOCX"],
+        "A full-stack web application that analyzes and formats Word documents into APA style using a FastAPI backend and Vite frontend.",
+      tech: ["Python", "FastAPI", "React", "Vite", "python-docx"],
       href: "/projects/apa-formatter",
-      status: "Coming Soon",
+      status: "Case Study Ready",
     },
     {
       title: "Restaurant Order Routing System",
