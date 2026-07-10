@@ -39,14 +39,12 @@ export default function ApaFormatterPage() {
               </div>
   
               <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="https://apa-doc-formatter.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="..."
-              >
-                View Live Demo
-              </a>
+                <a
+                  href="https://apa-doc-formatter.vercel.app/"
+                  className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-bold text-white shadow-lg shadow-gray-300 transition hover:-translate-y-0.5 hover:bg-gray-800"
+                >
+                  View Live Demo
+                </a>
   
                 <a
                   href="https://github.com/simonwen7/apa-doc-formatter"
