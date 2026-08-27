@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -73,7 +75,7 @@ export default function Footer() {
           "
         >
           {/* 左侧品牌信息 */}
-          <a
+          <Link
             href="/"
             aria-label="Go to Simon Wen's home page"
             className="
@@ -121,7 +123,7 @@ export default function Footer() {
                 Software · AI · Robotics
               </p>
             </div>
-          </a>
+          </Link>
 
           {/* 中间导航 */}
           <nav

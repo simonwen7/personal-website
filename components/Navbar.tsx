@@ -1,7 +1,7 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 type NavItem = {
@@ -42,9 +42,13 @@ export default function Navbar() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("home");
 
+  /*
+   * Scroll-spy state only matters on "/".
+   * isActive already gates on pathname === "/", so non-home routes
+   * never show a homepage section highlight without resetting state.
+   */
   useEffect(() => {
     if (pathname !== "/") {
-      setActiveSection("");
       return;
     }
 
@@ -78,13 +82,14 @@ export default function Navbar() {
       setActiveSection(currentSection);
     };
 
-    updateActiveSection();
-
     window.addEventListener("scroll", updateActiveSection, {
       passive: true,
     });
 
+    const frameId = window.requestAnimationFrame(updateActiveSection);
+
     return () => {
+      window.cancelAnimationFrame(frameId);
       window.removeEventListener(
         "scroll",
         updateActiveSection,
@@ -179,7 +184,7 @@ export default function Navbar() {
         "
       >
         {/* 左侧品牌 */}
-        <a
+        <Link
           href="/"
           aria-label="Go to Simon Wen's home page"
           onClick={(event) =>
@@ -234,7 +239,7 @@ export default function Navbar() {
               Software Engineer
             </p>
           </div>
-        </a>
+        </Link>
 
         {/* 中间导航胶囊 */}
         <div
@@ -326,7 +331,7 @@ export default function Navbar() {
         </div>
 
         {/* 右侧 CTA */}
-        <a
+        <Link
           href="/#contact"
           onClick={(event) =>
             handleNavigation(event, navItems[4])
@@ -373,7 +378,7 @@ export default function Navbar() {
           >
             →
           </span>
-        </a>
+        </Link>
       </nav>
     </header>
   );

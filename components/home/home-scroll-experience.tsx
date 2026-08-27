@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
+import Link from "next/link";
 
 import LabShell from "@/components/lab/lab-shell";
 
@@ -816,7 +817,7 @@ export default function HomeScrollExperience() {
                 Full profile →
               </a>
 
-              <a
+              <Link
                 href="/#contact"
                 className="
                   rounded-full
@@ -830,7 +831,7 @@ export default function HomeScrollExperience() {
                 "
               >
                 Contact me
-              </a>
+              </Link>
             </div>
           </Reveal>
 

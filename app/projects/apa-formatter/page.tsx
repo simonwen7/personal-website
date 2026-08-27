@@ -68,7 +68,7 @@ export default function ApaFormatterPage() {
   
               <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 font-mono text-sm">
                 <span className="text-sky-300">file:</span>{" "}
-                <span className="text-gray-100">"essay.docx"</span>
+                <span className="text-gray-100">&quot;essay.docx&quot;</span>
               </div>
   
               <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5 font-mono text-sm leading-7">
