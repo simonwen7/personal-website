@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
@@ -242,7 +243,7 @@ function InteractiveArea({
                 ${styles.action}
               `}
             >
-              Explore lab
+              Enter lab
 
               <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
                 →
@@ -259,16 +260,12 @@ export default function LabHomeScene({
   onEnterSoftware,
   onEnterRobotics,
 }: LabHomeSceneProps) {
+  const router = useRouter();
   const [isAboutOpen, setIsAboutOpen] = useState(false);
 
-  const openFullAbout = () => {
+  const openBeyondTheLab = () => {
     setIsAboutOpen(false);
-
-    window.setTimeout(() => {
-      document.getElementById("about")?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }, 200);
+    router.push("/about/");
   };
 
   return (
@@ -393,18 +390,20 @@ export default function LabHomeScene({
           </p>
 
           <p className="mt-2 text-[13px] leading-5 text-white/70">
-            Click on me to learn more about who I am.
+            Click Simon to learn about him.
           </p>
 
           <p className="mt-2 text-[13px] leading-5 text-white/70">
-            Hover over the Software and Robotics labs to discover
-            my projects, experience, ideas, and experiments.
+            Enter the Software Lab or Robotics Lab to explore the
+            engineering work.
           </p>
 
           <div className="mt-3 flex items-center gap-2 text-[11px] text-white/50">
-            <span>Click Simon</span>
+            <span>Simon</span>
             <span>•</span>
-            <span>Hover the labs</span>
+            <span>Software</span>
+            <span>•</span>
+            <span>Robotics</span>
           </div>
         </div>
       </motion.div>
@@ -553,7 +552,7 @@ export default function LabHomeScene({
                         tracking-[0.34em] text-white/[0.50]
                       "
                     >
-                      Welcome to my lab
+                      Meet Simon
                     </p>
 
                     <h1
@@ -588,24 +587,26 @@ export default function LabHomeScene({
                 </div>
 
                 <p className="mt-4 text-[14px] leading-6 text-white/[0.68]">
-                  I&apos;m a University of Waterloo Computer Science
-                  student focused on software engineering, backend
-                  systems, AI-powered applications, and robotics.
+                  I&apos;m an undergraduate student at the University of
+                  Waterloo.
                 </p>
 
                 <p className="mt-3 text-[14px] leading-6 text-white/[0.68]">
-                  I enjoy turning practical ideas into polished
-                  products and exploring how software can connect
-                  with real-world machines.
+                  Outside of software and robotics, I enjoy playing
+                  piano, basketball, and building LEGO.
+                </p>
+
+                <p className="mt-3 text-[14px] leading-6 text-white/[0.68]">
+                  Those interests keep me curious — making, creating,
+                  and learning beyond the lab.
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {[
                     "University of Waterloo",
-                    "Software",
-                    "Backend",
-                    "AI",
-                    "Robotics",
+                    "Piano",
+                    "Basketball",
+                    "LEGO",
                   ].map((item) => (
                     <span
                       key={item}
@@ -629,22 +630,22 @@ export default function LabHomeScene({
 
                   <button
                     type="button"
-                    onClick={openFullAbout}
+                    onClick={openBeyondTheLab}
                     className="
                       rounded-full
-                      border border-white/15
-                      bg-white/[0.07]
+                      border border-violet-300/20
+                      bg-violet-400/10
                       px-4 py-2
-                      text-xs font-medium text-white/[0.80]
+                      text-xs font-medium text-violet-50
                       transition
-                      hover:bg-white/[0.13]
+                      hover:bg-violet-400/20
                       hover:text-white
                       focus-visible:outline-none
                       focus-visible:ring-2
-                      focus-visible:ring-white/60
+                      focus-visible:ring-violet-200/60
                     "
                   >
-                    View full profile →
+                    Beyond the Lab →
                   </button>
                 </div>
               </div>

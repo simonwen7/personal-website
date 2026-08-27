@@ -5,8 +5,9 @@ export default function Footer() {
 
   const footerLinks = [
     ["Home", "/"],
-    ["Projects", "/#projects"],
-    ["About", "/#about"],
+    ["Software", "/software/"],
+    ["Robotics", "/robotics/"],
+    ["Beyond the Lab", "/about/"],
     ["Resume", "/#resume"],
     ["Contact", "/#contact"],
   ];
@@ -150,7 +151,7 @@ export default function Footer() {
           {/* 右侧操作 */}
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="https://github.com/Simonwen7"
+              href="https://github.com/simonwen7"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -172,8 +173,8 @@ export default function Footer() {
               GitHub ↗
             </a>
 
-            <a
-              href="/contact"
+            <Link
+              href="/#contact"
               className="
                 group inline-flex items-center gap-2
                 rounded-full
@@ -203,7 +204,7 @@ export default function Footer() {
               <span className="text-emerald-100/50 transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
-            </a>
+            </Link>
           </div>
         </div>
 
