@@ -5,9 +5,9 @@ import type { LabSubnavItem } from "./lab-types";
  * Keep this honest: no invented stories, awards, or media yet.
  */
 export const beyondTheLabSubnavItems: LabSubnavItem[] = [
-  { id: "intro", label: "Intro" },
+  { id: "intro", label: "Story" },
   { id: "music", label: "Music" },
   { id: "basketball", label: "Basketball" },
   { id: "lego", label: "LEGO" },
-  { id: "stories", label: "Stories" },
+  { id: "stories", label: "Notes" },
 ];

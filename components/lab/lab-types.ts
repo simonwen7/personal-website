@@ -138,18 +138,49 @@ export type RoboticsJourneyEntry = {
   affiliations?: readonly RoboticsJourneyAffiliation[];
 };
 
-export type RoboticsArchiveSlot = {
+export type RoboticsArchiveEra = "vex" | "frc";
+
+export type RoboticsBookMedia = {
   id: string;
+  src: string;
+  alt: string;
   kind: "certificate" | "photo";
-  placeholderLabel: string;
-  title?: string;
-  subtitle?: string;
-  /**
-   * Connect real asset when available.
-   * Certificates: public/media/robotics/certificates/
-   * Photos: public/media/robotics/gallery/
-   */
-  assetPath?: string;
-  caption?: string;
-  layout?: "certificate" | "photo" | "wide";
+  caption: string;
+  captionDetail?: string;
+  /** Defaults: certificate=contain, photo=cover */
+  fit?: "contain" | "cover";
+  /** Optional object-position for cover crops */
+  objectPosition?: string;
 };
+
+export type RoboticsBookSpread = {
+  id: string;
+  chapter: string;
+  year: number;
+  left: RoboticsBookMedia;
+  /** Absent only on the final single-image closing spread */
+  right?: RoboticsBookMedia;
+  /** Quiet closing copy on an empty right page */
+  closingNote?: {
+    line1: string;
+    line2: string;
+  };
+};
+
+/** @deprecated Legacy rail item shape — unused by photo book */
+export type RoboticsArchiveSize = "featured" | "medium" | "regular";
+
+export type RoboticsArchiveItem = {
+  id: string;
+  src: string;
+  alt: string;
+  meta: string;
+  caption: string;
+  captionDetail?: string;
+  era: RoboticsArchiveEra;
+  kind: "certificate" | "photo";
+  size: RoboticsArchiveSize;
+};
+
+/** @deprecated Prefer RoboticsBookSpread */
+export type RoboticsArchiveSlot = RoboticsArchiveItem;

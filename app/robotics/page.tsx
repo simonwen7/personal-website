@@ -12,7 +12,7 @@ import LabRoboticsArchive from "@/components/lab/lab-robotics-archive";
 import LabRoboticsJourney from "@/components/lab/lab-robotics-journey";
 import LabSectionHeading from "@/components/lab/lab-section-heading";
 import {
-  roboticsArchiveSlots,
+  roboticsArchiveBookSpreads,
   roboticsJourneyEntries,
   roboticsOverviewMeta,
   roboticsProgressionSteps,
@@ -89,7 +89,7 @@ export default function RoboticsLabPage() {
           />
 
           <div className={hubContentGap}>
-            <LabRoboticsArchive slots={roboticsArchiveSlots} />
+            <LabRoboticsArchive spreads={roboticsArchiveBookSpreads} />
           </div>
         </div>
       </section>
