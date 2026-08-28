@@ -9,6 +9,11 @@ import {
 import Link from "next/link";
 
 import LabShell from "@/components/lab/lab-shell";
+import {
+  hubButtonClass,
+  hubCardShell,
+  hubSectionContainer,
+} from "@/components/lab/lab-hub-scale";
 
 type SectionId = "home" | "about" | "resume" | "contact";
 
@@ -29,20 +34,14 @@ const blendThemeStyles: Record<BlendTheme, string> = {
     "bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.05)_0%,rgba(16,185,129,0.018)_36%,transparent_72%)]",
 };
 
-const homeSectionContainer =
-  "relative z-10 mx-auto w-full max-w-6xl";
-
-const homeCardShell =
-  "relative overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.042] shadow-[0_24px_75px_rgba(0,0,0,0.32)] backdrop-blur-xl px-8 py-10 md:px-12 md:py-12";
-
 const homeCardTitle =
-  "mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl";
+  "mt-3.5 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl";
 
 const homeCardBody =
-  "mt-4 max-w-2xl text-base leading-7 text-white/55";
+  "mt-3 max-w-2xl text-sm leading-6 text-white/50";
 
 const homeEyebrow =
-  "text-xs font-medium uppercase tracking-[0.34em]";
+  "text-[11px] font-medium uppercase tracking-[0.32em]";
 
 function Reveal({
   children,
@@ -273,9 +272,9 @@ export default function HomeScrollExperience() {
         className="
           relative z-10 scroll-mt-[88px] overflow-x-clip
           px-8
-          pt-28 pb-14
-          sm:pt-32 sm:pb-16
-          lg:pt-40 lg:pb-20
+          pt-28 pb-10
+          sm:pt-32 sm:pb-12
+          lg:pt-40 lg:pb-14
         "
       >
         {/*
@@ -293,10 +292,10 @@ export default function HomeScrollExperience() {
 
         <SectionBlend theme="blue" rise="after-hero" />
 
-        <div className={homeSectionContainer}>
+        <div className={hubSectionContainer}>
           <Reveal>
             <div
-              className={`${homeCardShell} flex flex-col justify-between gap-10 lg:flex-row lg:items-center`}
+              className={`${hubCardShell} flex flex-col justify-between gap-6 lg:flex-row lg:items-center`}
             >
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
@@ -322,7 +321,7 @@ export default function HomeScrollExperience() {
                   professional background.
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-1.5">
                   {[
                     "Software Engineering",
                     "QA Automation",
@@ -334,8 +333,8 @@ export default function HomeScrollExperience() {
                       key={skill}
                       className="
                         rounded-full border border-blue-300/15
-                        bg-blue-400/[0.07] px-3 py-1.5
-                        text-xs text-blue-100/65
+                        bg-blue-400/[0.07] px-2.5 py-1
+                        text-[11px] text-blue-100/65
                       "
                     >
                       {skill}
@@ -344,17 +343,17 @@ export default function HomeScrollExperience() {
                 </div>
               </div>
 
-              <div className="relative z-10 flex shrink-0 flex-wrap gap-3">
+              <div className="relative z-10 flex shrink-0 flex-wrap gap-2.5">
                 <a
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
-                    rounded-full border border-blue-300/20
-                    bg-blue-400/10 px-5 py-3
-                    text-sm font-medium text-blue-50
-                    transition hover:-translate-y-0.5 hover:bg-blue-400/20
-                  "
+                  className={`
+                    ${hubButtonClass}
+                    border border-blue-300/20
+                    bg-blue-400/10 text-blue-50
+                    hover:bg-blue-400/20
+                  `}
                 >
                   View Resume ↗
                 </a>
@@ -362,13 +361,12 @@ export default function HomeScrollExperience() {
                 <a
                   href="/resume.pdf"
                   download
-                  className="
-                    rounded-full border border-white/10
-                    bg-white/[0.05] px-5 py-3
-                    text-sm font-medium text-white/65
-                    transition hover:-translate-y-0.5
+                  className={`
+                    ${hubButtonClass}
+                    border border-white/10
+                    bg-white/[0.05] text-white/65
                     hover:bg-white/[0.10] hover:text-white
-                  "
+                  `}
                 >
                   Download ↓
                 </a>
@@ -383,14 +381,14 @@ export default function HomeScrollExperience() {
         id="about"
         className="
           relative z-10 scroll-mt-[88px] overflow-x-clip
-          px-8 py-14 sm:py-16 lg:py-20
+          px-8 py-10 sm:py-12 lg:py-14
         "
       >
         <SectionBlend theme="violet" />
 
-        <div className={homeSectionContainer}>
+        <div className={hubSectionContainer}>
           <Reveal>
-            <div className={homeCardShell}>
+            <div className={hubCardShell}>
               <div
                 aria-hidden="true"
                 className="
@@ -423,18 +421,17 @@ export default function HomeScrollExperience() {
                   basketball, and building LEGO.
                 </p>
 
-                <div className="mt-8">
+                <div className="mt-5">
                   <Link
                     href="/about/"
-                    className="
-                      inline-flex rounded-full
+                    className={`
+                      inline-flex ${hubButtonClass}
                       border border-violet-300/20 bg-violet-400/10
-                      px-5 py-3 text-sm font-medium text-violet-50
-                      transition hover:-translate-y-0.5 hover:bg-violet-400/20
+                      text-violet-50 hover:bg-violet-400/20
                       focus-visible:outline-none
                       focus-visible:ring-2
                       focus-visible:ring-violet-200/50
-                    "
+                    `}
                   >
                     Explore Beyond the Lab →
                   </Link>
@@ -450,14 +447,14 @@ export default function HomeScrollExperience() {
         id="contact"
         className="
           relative z-10 scroll-mt-[88px] overflow-x-clip
-          px-8 py-14 pb-20 sm:py-16 sm:pb-24 lg:py-20 lg:pb-28
+          px-8 py-10 pb-16 sm:py-12 sm:pb-20 lg:py-14 lg:pb-24
         "
       >
         <SectionBlend theme="emerald" />
 
-        <div className={homeSectionContainer}>
+        <div className={hubSectionContainer}>
           <Reveal>
-            <div className={`${homeCardShell} text-center`}>
+            <div className={`${hubCardShell} text-center`}>
               <div
                 aria-hidden="true"
                 className="
@@ -491,12 +488,12 @@ export default function HomeScrollExperience() {
                 </p>
               </div>
 
-              <div className="relative z-10 mt-10 grid gap-4 sm:grid-cols-2">
+              <div className="relative z-10 mt-7 grid gap-3 sm:grid-cols-2">
                 {[
                   {
                     label: "Email",
-                    value: "simonwensw7@gmail.com",
-                    href: "mailto:simonwensw7@gmail.com",
+                    value: "x5wen@uwaterloo.ca",
+                    href: "mailto:x5wen@uwaterloo.ca",
                     external: false,
                   },
                   {
@@ -528,18 +525,18 @@ export default function HomeScrollExperience() {
                         : undefined
                     }
                     className="
-                      rounded-[24px] border border-white/10
-                      bg-white/[0.042] px-6 py-5 text-left
-                      shadow-[0_20px_50px_rgba(0,0,0,0.25)]
+                      rounded-[20px] border border-white/10
+                      bg-white/[0.042] px-5 py-4 text-left
+                      shadow-[0_16px_40px_rgba(0,0,0,0.22)]
                       backdrop-blur-xl transition
                       hover:-translate-y-0.5 hover:border-emerald-300/20
                       hover:bg-white/[0.06]
                     "
                   >
-                    <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/35">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.26em] text-white/35">
                       {item.label}
                     </p>
-                    <p className="mt-3 text-sm font-medium text-white/80">
+                    <p className="mt-2 text-sm font-medium text-white/80">
                       {item.value}
                     </p>
                   </a>

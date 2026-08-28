@@ -1,7 +1,7 @@
 import type {
-  LabExperienceEntry,
   LabProject,
   LabSubnavItem,
+  SoftwareHubExperienceEntry,
   SoftwareTrack,
 } from "@/components/lab/lab-types";
 
@@ -119,23 +119,81 @@ export const softwareTracks: SoftwareTrack[] = [
 export const systemsTrack = softwareTracks[0];
 export const businessTrack = softwareTracks[1];
 
-export const softwareExperienceEntries: LabExperienceEntry[] = [
+export const softwareHubExperienceEntries: SoftwareHubExperienceEntry[] = [
   {
-    role: "Computer Science Student",
-    organization: "University of Waterloo",
-    period: "Present",
-    highlights: [
-      "Focused on software engineering, backend systems, AI-powered tools, and full-stack products.",
+    number: "01",
+    role: "QA Automation Intern",
+    organization: "Tangam Systems",
+    organizationContext: "Software company for casino analytics",
+    period: "May 2026 — Aug 2026",
+    description:
+      "Built and maintained end-to-end test automation for a casino analytics platform, validating user-facing workflows and regression behavior with Cypress and Cucumber.",
+    achievements: [
+      "Created and maintained 200+ automated E2E test cases across 70+ product tickets.",
+      "Designed and validated 10+ automation scenarios across four major product areas during a focused testing cycle.",
+    ],
+    tags: [
+      "Cypress",
+      "JavaScript",
+      "Cucumber",
+      "E2E Testing",
+      "Regression Testing",
+    ],
+    proofPoints: [
+      { type: "metric", value: "200+", label: "Automated E2E test cases" },
+      { type: "metric", value: "70+", label: "Product tickets" },
     ],
   },
   {
-    role: "Software experience entry",
-    organization: "To be added",
-    period: "—",
-    highlights: [
-      "Reserved for future internship / work experience details.",
+    number: "02",
+    role: "QA Analyst Intern",
+    organization: "Propel Holdings",
+    organizationContext: "AI-powered fintech company",
+    period: "Sep 2025 — Dec 2025",
+    description:
+      "Used SQL-driven backend testing to validate customer and loan-application data across database, API, UI, and business-rule layers.",
+    achievements: [
+      "Worked across 100+ QA tickets covering customer data, loan applications, and production financial workflows.",
+      "Built reusable SQL validation queries to reconcile backend records with API responses, UI output, and business rules.",
     ],
-    isPlaceholder: true,
+    tags: [
+      "SQL",
+      "Backend Validation",
+      "API Testing",
+      "Data Integrity",
+      "Financial Systems",
+    ],
+    proofPoints: [
+      { type: "metric", value: "100+", label: "QA tickets" },
+      {
+        type: "relation",
+        text: "Database ↔ API ↔ UI ↔ Business Rules",
+      },
+    ],
+  },
+  {
+    number: "03",
+    role: "Project Lead",
+    organization: "Microsoft × University of Waterloo",
+    organizationContext: "Industry–academic AI collaboration",
+    period: "May 2024 — Aug 2024",
+    description:
+      "Led a four-person team building an AI-powered investment insights platform for individual investors, using financial profiles, investment goals, and market interests to generate personalized guidance.",
+    achievements: [
+      "Co-developed the AI, backend, and database layers in Python and Azure, supporting investment insights, suggested allocations, and financial-report analysis.",
+      "Led project planning, team coordination, and final delivery, earning an Outstanding overall performance rating for the work term.",
+    ],
+    tags: [
+      "Python",
+      "Azure AI",
+      "Azure SQL",
+      "Backend Engineering",
+      "Project Leadership",
+    ],
+    proofPoints: [
+      { type: "metric", value: "4", label: "Team members" },
+      { type: "metric", value: "Outstanding", label: "Overall performance" },
+    ],
   },
 ];
 
@@ -145,7 +203,6 @@ export const softwareHubSubnavItems: LabSubnavItem[] = [
   { id: "systems", label: "Systems" },
   { id: "business", label: "Business" },
   { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
 ];
 
 /** Forma APA project subnav */
@@ -195,7 +252,6 @@ export const systemsSubnavItems: LabSubnavItem[] = [
   { id: "artifact-store", label: "Artifact Store" },
   { id: "code-intelligence", label: "Code Intelligence" },
   { id: "inference-runtime", label: "Inference Runtime" },
-  { id: "contact", label: "Contact" },
 ];
 
 /** @deprecated Category listing pages redirect to `/software/#business`. */
@@ -203,7 +259,6 @@ export const businessSubnavItems: LabSubnavItem[] = [
   { id: "overview", label: "Overview" },
   { id: "apa-formatter", label: "APA Formatter" },
   { id: "job-matcher", label: "Job Matcher" },
-  { id: "contact", label: "Contact" },
 ];
 
 /** @deprecated Prefer softwareTracks — kept for any transitional imports. */

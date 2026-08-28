@@ -1,11 +1,21 @@
-import LabCtaSection from "@/components/lab/lab-cta-section";
-import LabExperienceCard from "@/components/lab/lab-experience-card";
+import {
+  hubCardShell,
+  hubContentGap,
+  hubMetaCardClass,
+  hubMetaLabelClass,
+  hubMetaValueClass,
+  hubSectionClass,
+  hubSectionContainer,
+} from "@/components/lab/lab-hub-scale";
 import LabPageShell from "@/components/lab/lab-page-shell";
-import LabProjectCard from "@/components/lab/lab-project-card";
+import LabRoboticsArchive from "@/components/lab/lab-robotics-archive";
+import LabRoboticsJourney from "@/components/lab/lab-robotics-journey";
 import LabSectionHeading from "@/components/lab/lab-section-heading";
 import {
-  roboticsExperienceEntries,
-  roboticsProjects,
+  roboticsArchiveSlots,
+  roboticsJourneyEntries,
+  roboticsOverviewMeta,
+  roboticsProgressionSteps,
   roboticsSubnavItems,
 } from "@/components/lab/robotics-lab-data";
 
@@ -16,22 +26,10 @@ export default function RoboticsLabPage() {
       subnavLabel="Robotics Lab"
       subnavItems={roboticsSubnavItems}
     >
-      {/* 01 — Overview */}
-      <section
-        id="overview"
-        className="relative scroll-mt-[120px] overflow-x-clip px-8 py-20"
-      >
-        <div className="relative z-10 mx-auto w-full max-w-6xl">
-          <div
-            className="
-              relative overflow-hidden rounded-[36px]
-              border border-white/10
-              bg-white/[0.042]
-              p-8 shadow-[0_24px_75px_rgba(0,0,0,0.32)]
-              backdrop-blur-xl
-              md:p-12
-            "
-          >
+      {/* Overview */}
+      <section id="overview" className={hubSectionClass}>
+        <div className={hubSectionContainer}>
+          <div className={hubCardShell}>
             <div
               aria-hidden="true"
               className="
@@ -43,39 +41,16 @@ export default function RoboticsLabPage() {
             <div className="relative z-10">
               <LabSectionHeading
                 accent="emerald"
-                eyebrow="01 — Scene"
+                eyebrow="Robotics Lab"
                 title="Robotics Lab"
-                description="A dedicated space for robotics projects, experiments, and hands-on systems work. Content will be added as real work lands here."
+                description="From early VEX competitions to FRC leadership, technical mentorship, and university robotics, robotics has remained a long-running part of how I build, learn, and lead."
               />
 
-              <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                {[
-                  {
-                    label: "Focus",
-                    value: "Machines · control · physical systems",
-                  },
-                  {
-                    label: "Contains",
-                    value: "Projects and experience scaffolds",
-                  },
-                  {
-                    label: "Status",
-                    value: "Framework ready — content forthcoming",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="
-                      rounded-[22px] border border-white/[0.08]
-                      bg-black/20 p-5
-                    "
-                  >
-                    <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/35">
-                      {item.label}
-                    </p>
-                    <p className="mt-3 text-sm leading-6 text-white/70">
-                      {item.value}
-                    </p>
+              <div className={`${hubContentGap} grid gap-3 sm:grid-cols-3`}>
+                {roboticsOverviewMeta.map((item) => (
+                  <div key={item.label} className={hubMetaCardClass}>
+                    <p className={hubMetaLabelClass}>{item.label}</p>
+                    <p className={hubMetaValueClass}>{item.value}</p>
                   </div>
                 ))}
               </div>
@@ -84,68 +59,40 @@ export default function RoboticsLabPage() {
         </div>
       </section>
 
-      {/* 02 — Projects */}
-      <section
-        id="projects"
-        className="relative scroll-mt-[120px] overflow-x-clip px-8 py-20"
-      >
-        <div className="relative z-10 mx-auto w-full max-w-6xl">
+      {/* 01 — Robotics Journey */}
+      <section id="journey" className={hubSectionClass}>
+        <div className={hubSectionContainer}>
           <LabSectionHeading
             accent="emerald"
-            eyebrow="02 — Builds"
-            title="Projects"
-            description="Structural slots for future robotics work. No invented projects are listed here."
+            eyebrow="Robotics Journey"
+            title="A Decade in Robotics"
+            description="From VEX competition to FRC leadership, mentorship, and university robotics."
           />
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {roboticsProjects.map((project, index) => (
-              <LabProjectCard
-                key={`robotics-slot-${index + 1}`}
-                project={{
-                  ...project,
-                  title: `Robotics project slot ${index + 1}`,
-                }}
-                accent="emerald"
-              />
-            ))}
+          <div className={hubContentGap}>
+            <LabRoboticsJourney
+              entries={roboticsJourneyEntries}
+              progressionSteps={roboticsProgressionSteps}
+            />
           </div>
         </div>
       </section>
 
-      {/* 03 — Experience / Experiments */}
-      <section
-        id="experience"
-        className="relative scroll-mt-[120px] overflow-x-clip px-8 py-20"
-      >
-        <div className="relative z-10 mx-auto w-full max-w-6xl">
+      {/* 02 — Robotics Archive */}
+      <section id="archive" className={hubSectionClass}>
+        <div className={hubSectionContainer}>
           <LabSectionHeading
             accent="emerald"
-            eyebrow="03 — Experience"
-            title="Experience / Experiments"
-            description="A flexible structure for future robotics experience. Placeholder entries are clearly marked."
+            eyebrow="Robotics Archive"
+            title="Robotics Archive"
+            description="Certificates and moments from more than a decade in robotics."
           />
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {roboticsExperienceEntries.map((entry) => (
-              <LabExperienceCard
-                key={`${entry.role}-${entry.organization}`}
-                entry={entry}
-                accent="emerald"
-              />
-            ))}
+          <div className={hubContentGap}>
+            <LabRoboticsArchive slots={roboticsArchiveSlots} />
           </div>
         </div>
       </section>
-
-      {/* 04 — Let's Talk */}
-      <LabCtaSection
-        accent="emerald"
-        eyebrow="04 — Contact"
-        title="Let's Talk"
-        description="Reach out about robotics, physical systems, or collaborations that connect software with machines."
-        href="/#contact"
-        ctaLabel="Contact Me →"
-      />
     </LabPageShell>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import LabSectionHeading from "./lab-section-heading";
+import { hubButtonClass, hubCardShell, hubSectionContainer } from "./lab-hub-scale";
 import type { LabAccent } from "./lab-types";
 
 const panelGlow: Record<LabAccent, string> = {
@@ -43,29 +44,23 @@ export default function LabCtaSection({
         relative z-10
         scroll-mt-[120px]
         overflow-x-clip
-        px-8 py-24
+        px-8 py-12 sm:py-14
       "
     >
-      <div className="relative z-10 mx-auto w-full max-w-5xl">
+      <div className={hubSectionContainer}>
         <div
-          className="
-            relative overflow-hidden rounded-[34px]
-            border border-white/10
-            bg-white/[0.042]
-            px-8 py-12
+          className={`
+            ${hubCardShell}
             text-center
-            shadow-[0_24px_75px_rgba(0,0,0,0.32)]
-            backdrop-blur-xl
-            sm:px-12
-          "
+          `}
         >
           <div
             aria-hidden="true"
             className={`
               pointer-events-none absolute left-1/2 top-1/2
-              h-[420px] w-[420px]
+              h-[320px] w-[320px]
               -translate-x-1/2 -translate-y-1/2
-              rounded-full blur-[140px]
+              rounded-full blur-[120px]
               ${panelGlow[accent]}
             `}
           />
@@ -79,12 +74,12 @@ export default function LabCtaSection({
               align="center"
             />
 
-            <div className="mt-9 flex w-full justify-center">
+            <div className="mt-6 flex w-full justify-center">
               <Link
                 href={href}
                 className={`
-                  rounded-full border px-6 py-3
-                  text-sm font-medium transition
+                  ${hubButtonClass}
+                  border
                   hover:-translate-y-0.5
                   ${buttonTone[accent]}
                 `}

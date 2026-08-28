@@ -385,8 +385,8 @@ export default function LabHomeScene({
             </p>
           </div>
 
-          <p className="mt-3 text-[21px] font-semibold leading-tight tracking-[-0.01em]">
-            Hi, I&apos;m Simon.
+          <p className="mt-3 text-[21px] font-semibold leading-snug tracking-[-0.01em]">
+            Hi, I&apos;m Xiemin — you can also call me Simon.
           </p>
 
           <p className="mt-2 text-[13px] leading-5 text-white/70">

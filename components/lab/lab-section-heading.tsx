@@ -46,19 +46,19 @@ export default function LabSectionHeading({
           className={`h-2 w-2 rounded-full ${styles.dot}`}
         />
         <p
-          className={`text-xs font-medium uppercase tracking-[0.34em] ${styles.eyebrow}`}
+          className={`text-[11px] font-medium uppercase tracking-[0.32em] ${styles.eyebrow}`}
         >
           {eyebrow}
         </p>
       </div>
 
-      <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
+      <h2 className="mt-3.5 text-3xl font-semibold tracking-[-0.035em] text-white sm:text-4xl">
         {title}
       </h2>
 
       {description ? (
         <p
-          className={`mt-5 max-w-2xl text-base leading-7 text-white/[0.58] ${isCenter ? "mx-auto" : ""}`}
+          className={`mt-3 max-w-2xl text-sm leading-6 text-white/50 ${isCenter ? "mx-auto" : ""}`}
         >
           {description}
         </p>

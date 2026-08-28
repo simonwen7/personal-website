@@ -1,4 +1,3 @@
-import LabCtaSection from "@/components/lab/lab-cta-section";
 import LabPageShell from "@/components/lab/lab-page-shell";
 import LabSectionHeading from "@/components/lab/lab-section-heading";
 import { beyondTheLabSubnavItems } from "@/components/lab/beyond-the-lab-data";
@@ -358,16 +357,6 @@ export default function BeyondTheLabPage() {
           </p>
         </div>
       </section>
-
-      {/* 06 — Let's Talk */}
-      <LabCtaSection
-        accent="violet"
-        eyebrow="06 — Connect"
-        title="Let's Talk"
-        description="Want to reach out — about engineering, music, or anything else? Head to the contact section."
-        href="/#contact"
-        ctaLabel="Contact Me →"
-      />
     </LabPageShell>
   );
 }

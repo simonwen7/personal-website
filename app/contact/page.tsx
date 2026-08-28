@@ -1,9 +1,9 @@
 const contactLinks = [
     {
       title: "Email",
-      value: "simonwensw7@gmail.com",
+      value: "x5wen@uwaterloo.ca",
       description: "Best for internship, co-op, and project opportunities.",
-      href: "mailto:simonwensw7@gmail.com",
+      href: "mailto:x5wen@uwaterloo.ca",
     },
     {
       title: "LinkedIn",
@@ -75,7 +75,7 @@ const contactLinks = [
               </p>
   
               <a
-                href="mailto:simonwensw7@gmail.com"
+                href="mailto:x5wen@uwaterloo.ca"
                 className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition hover:-translate-y-1 hover:bg-gray-100"
               >
                 Send Email

@@ -67,13 +67,13 @@ export default function LabProjectPreviewCard({
     <Link
       href={project.href}
       className={`
-        group relative flex overflow-hidden rounded-[28px]
+        group relative flex overflow-hidden rounded-[24px]
         border border-white/10 bg-white/[0.042]
-        shadow-[0_24px_70px_rgba(0,0,0,0.30)]
+        shadow-[0_20px_60px_rgba(0,0,0,0.28)]
         backdrop-blur-xl transition duration-300
         hover:-translate-y-1
         ${accentHover[accent]}
-        ${featured ? "flex-col gap-0 lg:flex-row lg:items-stretch" : "min-h-[220px] flex-col"}
+        ${featured ? "flex-col gap-0 lg:flex-row lg:items-stretch" : "min-h-[190px] flex-col"}
       `}
     >
       <span
@@ -87,8 +87,8 @@ export default function LabProjectPreviewCard({
 
       <div
         className={`
-          relative z-10 flex flex-1 flex-col p-6
-          ${featured ? "lg:p-8" : ""}
+          relative z-10 flex flex-1 flex-col p-5
+          ${featured ? "lg:p-6" : ""}
         `}
       >
         <div className="flex flex-wrap items-center gap-2">
@@ -99,8 +99,8 @@ export default function LabProjectPreviewCard({
 
         <h3
           className={`
-            mt-4 font-semibold tracking-[-0.025em] text-white
-            ${featured ? "text-2xl sm:text-3xl" : "text-xl"}
+            mt-3 font-semibold tracking-[-0.025em] text-white
+            ${featured ? "text-xl sm:text-2xl" : "text-lg"}
           `}
         >
           {project.title}
@@ -109,8 +109,8 @@ export default function LabProjectPreviewCard({
         {project.summary ? (
           <p
             className={`
-              mt-3 leading-6 text-white/55
-              ${featured ? "max-w-2xl text-sm sm:text-base" : "text-sm line-clamp-3"}
+              mt-2.5 leading-6 text-white/55
+              ${featured ? "max-w-2xl text-sm" : "text-sm line-clamp-3"}
             `}
           >
             {project.summary}
@@ -122,7 +122,7 @@ export default function LabProjectPreviewCard({
         )}
 
         {project.technologies && project.technologies.length > 0 ? (
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-3 flex flex-wrap gap-1.5">
             {project.technologies.slice(0, featured ? 5 : 4).map((tech) => (
               <span
                 key={tech}
@@ -140,7 +140,7 @@ export default function LabProjectPreviewCard({
 
         <p
           className={`
-            mt-auto flex items-center gap-2 pt-6 text-sm font-medium
+            mt-auto flex items-center gap-2 pt-4 text-sm font-medium
             ${ctaMuted ? "text-white/35" : ctaTone[accent]}
           `}
         >

@@ -1,16 +1,12 @@
 import Link from "next/link";
 
+import {
+  SiteFooterContactCta,
+  SiteFooterNavPill,
+} from "@/components/site-footer-nav";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const footerLinks = [
-    ["Home", "/"],
-    ["Software", "/software/"],
-    ["Robotics", "/robotics/"],
-    ["Beyond the Lab", "/about/"],
-    ["Resume", "/#resume"],
-    ["Contact", "/#contact"],
-  ];
 
   return (
     <footer
@@ -63,7 +59,7 @@ export default function Footer() {
         {/* Footer 主体 */}
         <div
           className="
-            flex flex-col gap-8
+            flex flex-col gap-6
             rounded-[30px]
             border border-white/10
             bg-white/[0.035]
@@ -80,7 +76,7 @@ export default function Footer() {
             href="/"
             aria-label="Go to Simon Wen's home page"
             className="
-              group flex items-center gap-4
+              group flex shrink-0 items-center gap-4
               rounded-2xl
               focus-visible:outline-none
               focus-visible:ring-2
@@ -126,30 +122,13 @@ export default function Footer() {
             </div>
           </Link>
 
-          {/* 中间导航 */}
-          <nav
-            aria-label="Footer navigation"
-            className="flex flex-wrap items-center gap-x-6 gap-y-3"
-          >
-            {footerLinks.map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                className="
-                  text-sm font-medium text-white/50
-                  transition duration-300
-                  hover:text-white
-                  focus-visible:outline-none
-                  focus-visible:text-white
-                "
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
+          {/* 中间导航 pill */}
+          <div className="flex flex-1 justify-center px-0 lg:px-4">
+            <SiteFooterNavPill />
+          </div>
 
           {/* 右侧操作 */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex shrink-0 flex-wrap items-center justify-center gap-2.5 sm:justify-end">
             <a
               href="https://github.com/simonwen7"
               target="_blank"
@@ -159,7 +138,7 @@ export default function Footer() {
                 border border-white/10
                 bg-white/[0.045]
                 px-4 py-2.5
-                text-xs font-medium text-white/60
+                text-sm font-medium text-white/60
                 transition duration-300
                 hover:-translate-y-0.5
                 hover:border-cyan-300/20
@@ -173,38 +152,7 @@ export default function Footer() {
               GitHub ↗
             </a>
 
-            <Link
-              href="/#contact"
-              className="
-                group inline-flex items-center gap-2
-                rounded-full
-                border border-emerald-300/20
-                bg-emerald-400/10
-                px-4 py-2.5
-                text-xs font-medium text-emerald-50
-                transition duration-300
-                hover:-translate-y-0.5
-                hover:bg-emerald-400/20
-                focus-visible:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-emerald-200/50
-              "
-            >
-              <span
-                aria-hidden="true"
-                className="
-                  h-1.5 w-1.5 rounded-full
-                  bg-emerald-300
-                  shadow-[0_0_10px_rgba(110,231,183,0.9)]
-                "
-              />
-
-              Let&apos;s Talk
-
-              <span className="text-emerald-100/50 transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
+            <SiteFooterContactCta />
           </div>
         </div>
 

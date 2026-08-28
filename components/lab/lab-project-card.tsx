@@ -36,12 +36,12 @@ export default function LabProjectCard({
   return (
     <article
       className={`
-        group relative flex h-full min-h-[280px] flex-col
-        overflow-hidden rounded-[30px]
+        group relative flex h-full min-h-[220px] flex-col
+        overflow-hidden rounded-[24px]
         border border-white/10
         bg-white/[0.042]
-        p-6
-        shadow-[0_24px_70px_rgba(0,0,0,0.30)]
+        p-5
+        shadow-[0_20px_60px_rgba(0,0,0,0.28)]
         backdrop-blur-xl
         transition duration-300
         hover:-translate-y-1
@@ -71,12 +71,12 @@ export default function LabProjectCard({
         ) : null}
       </div>
 
-      <h3 className="relative z-10 mt-6 text-2xl font-semibold tracking-[-0.025em] text-white">
+      <h3 className="relative z-10 mt-4 text-lg font-semibold tracking-[-0.025em] text-white">
         {project.title}
       </h3>
 
       {project.summary ? (
-        <p className="relative z-10 mt-4 text-sm leading-6 text-white/55">
+        <p className="relative z-10 mt-3 text-sm leading-6 text-white/55">
           {project.summary}
         </p>
       ) : (
@@ -86,14 +86,14 @@ export default function LabProjectCard({
       )}
 
       {project.technologies && project.technologies.length > 0 ? (
-        <div className="relative z-10 mt-5 flex flex-wrap gap-2">
+        <div className="relative z-10 mt-4 flex flex-wrap gap-1.5">
           {project.technologies.map((tech) => (
             <span
               key={tech}
               className="
                 rounded-full border border-white/10
-                bg-white/[0.04] px-3 py-1
-                text-xs text-white/55
+                bg-white/[0.04] px-2.5 py-0.5
+                text-[11px] text-white/55
               "
             >
               {tech}
@@ -102,7 +102,7 @@ export default function LabProjectCard({
         </div>
       ) : null}
 
-      <div className="relative z-10 mt-auto flex flex-wrap gap-3 pt-8">
+      <div className="relative z-10 mt-auto flex flex-wrap gap-2.5 pt-5">
         {hasGithub ? (
           <a
             href={project.githubHref}

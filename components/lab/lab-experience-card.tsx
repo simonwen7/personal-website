@@ -18,11 +18,11 @@ export default function LabExperienceCard({
   return (
     <article
       className={`
-        relative overflow-hidden rounded-[28px]
+        relative overflow-hidden rounded-[24px]
         border border-white/10
         bg-white/[0.042]
-        p-6
-        shadow-[0_24px_70px_rgba(0,0,0,0.28)]
+        p-5
+        shadow-[0_20px_60px_rgba(0,0,0,0.26)]
         backdrop-blur-xl
         transition duration-300
         hover:-translate-y-0.5
@@ -31,27 +31,27 @@ export default function LabExperienceCard({
       `}
     >
       {entry.isPlaceholder ? (
-        <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.28em] text-amber-200/70">
+        <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.26em] text-amber-200/70">
           Layout placeholder — not final public content
         </p>
       ) : null}
 
-      <div className="flex flex-wrap items-start justify-between gap-4">
+      <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="text-xl font-semibold text-white">{entry.role}</h3>
-          <p className="mt-2 text-sm text-white/60">{entry.organization}</p>
+          <h3 className="text-lg font-semibold text-white">{entry.role}</h3>
+          <p className="mt-1.5 text-sm text-white/55">{entry.organization}</p>
         </div>
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/40">
+        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/40">
           {entry.period}
         </p>
       </div>
 
       {entry.highlights && entry.highlights.length > 0 ? (
-        <ul className="mt-5 space-y-2">
+        <ul className="mt-4 space-y-1.5">
           {entry.highlights.map((item) => (
             <li
               key={item}
-              className="flex gap-3 text-sm leading-6 text-white/50"
+              className="flex gap-2.5 text-sm leading-6 text-white/50"
             >
               <span
                 aria-hidden="true"

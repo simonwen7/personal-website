@@ -10,5 +10,4 @@ export const beyondTheLabSubnavItems: LabSubnavItem[] = [
   { id: "basketball", label: "Basketball" },
   { id: "lego", label: "LEGO" },
   { id: "stories", label: "Stories" },
-  { id: "contact", label: "Contact" },
 ];

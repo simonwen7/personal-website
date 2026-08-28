@@ -62,3 +62,94 @@ export type LabExperienceEntry = {
   /** When true, treat as layout scaffold — not final public content. */
   isPlaceholder?: boolean;
 };
+
+export type SoftwareExperienceProofPoint =
+  | {
+      type: "metric";
+      value: string;
+      label: string;
+    }
+  | {
+      type: "relation";
+      text: string;
+    };
+
+export type SoftwareHubExperienceEntry = {
+  number: string;
+  role: string;
+  organization: string;
+  organizationContext: string;
+  period: string;
+  description: string;
+  achievements: readonly [string, string];
+  tags: readonly string[];
+  proofPoints: readonly SoftwareExperienceProofPoint[];
+};
+
+export type HubExperienceAffiliation = {
+  name: string;
+  role: string;
+  description: string;
+};
+
+/** Shared hub experience row — Software and Robotics. */
+export type HubExperienceEntry = {
+  number: string;
+  role: string;
+  organization: string;
+  organizationContext?: string;
+  period: string;
+  description: string;
+  achievements?: readonly string[];
+  tags?: readonly string[];
+  proofPoints?: readonly SoftwareExperienceProofPoint[];
+  affiliations?: readonly HubExperienceAffiliation[];
+};
+
+export type RoboticsJourneyAward = {
+  title: string;
+  event: string;
+  context?: string;
+};
+
+export type RoboticsJourneyAffiliation = {
+  name: string;
+  role: string;
+  description: string;
+};
+
+export type RoboticsJourneyHighlight = {
+  label: string;
+  detail: string;
+};
+
+export type RoboticsJourneyEntry = {
+  id: string;
+  period: string;
+  stage: string;
+  organization?: string;
+  category?: string;
+  description?: string;
+  context?: string;
+  awards?: readonly RoboticsJourneyAward[];
+  bullets?: readonly string[];
+  highlight?: RoboticsJourneyHighlight;
+  tags?: readonly string[];
+  affiliations?: readonly RoboticsJourneyAffiliation[];
+};
+
+export type RoboticsArchiveSlot = {
+  id: string;
+  kind: "certificate" | "photo";
+  placeholderLabel: string;
+  title?: string;
+  subtitle?: string;
+  /**
+   * Connect real asset when available.
+   * Certificates: public/media/robotics/certificates/
+   * Photos: public/media/robotics/gallery/
+   */
+  assetPath?: string;
+  caption?: string;
+  layout?: "certificate" | "photo" | "wide";
+};
