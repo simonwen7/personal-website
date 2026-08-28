@@ -29,16 +29,6 @@ export default function ArtifactStoreShowcase() {
               <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/40">
                 01 / AI Artifact Store
               </span>
-              <span
-                className="
-                  rounded-full border border-cyan-300/20
-                  bg-cyan-400/10 px-3 py-1
-                  text-[11px] font-medium uppercase tracking-[0.18em]
-                  text-cyan-50/85
-                "
-              >
-                Completed
-              </span>
             </div>
 
             <p className="mt-5 text-xs font-medium uppercase tracking-[0.28em] text-cyan-100/55">
@@ -57,6 +47,17 @@ export default function ArtifactStoreShowcase() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
+                href={`#${DEMO_VIDEO_ID}`}
+                className="
+                  rounded-full border border-cyan-300/20
+                  bg-cyan-400/10 px-5 py-2.5
+                  text-sm font-medium text-cyan-50
+                  transition hover:bg-cyan-400/20
+                "
+              >
+                Watch Demo ▶
+              </a>
+              <a
                 href={artifactStoreGithub}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -68,17 +69,6 @@ export default function ArtifactStoreShowcase() {
                 "
               >
                 GitHub ↗
-              </a>
-              <a
-                href={`#${DEMO_VIDEO_ID}`}
-                className="
-                  rounded-full border border-cyan-300/20
-                  bg-cyan-400/10 px-5 py-2.5
-                  text-sm font-medium text-cyan-50
-                  transition hover:bg-cyan-400/20
-                "
-              >
-                Watch Demo ▶
               </a>
             </div>
           </div>

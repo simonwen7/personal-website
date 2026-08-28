@@ -10,26 +10,45 @@ const systemsProjects: LabProject[] = [
     id: "artifact-store",
     number: "01",
     title: "AI Artifact Store",
-    status: "Completed",
     summary:
       "A C++20 distributed artifact store for AI/ML workloads, built around content addressing, resumable transfer, replication, and failure recovery.",
     technologies: ["C++20", "PostgreSQL", "Boost.Asio", "Distributed Storage"],
     href: "/software/systems/ai-artifact-store/",
+    previewCta: "View Demo",
     githubHref: "https://github.com/simonwen7/ai-artifact-store",
   },
   {
     id: "code-intelligence",
     number: "02",
     title: "Graph-Augmented Code Intelligence Engine",
-    status: "Planned",
+    summary:
+      "Structural code intelligence built around program relationships, retrieval, and graph-aware context selection.",
+    technologies: [
+      "Python",
+      "Static Analysis",
+      "Retrieval",
+      "Graph Algorithms",
+    ],
     href: "/software/systems/code-intelligence/",
+    previewCta: "Demo coming soon",
+    githubHref: "https://github.com/simonwen7/graph_code_intelligence",
   },
   {
     id: "inference-runtime",
     number: "03",
     title: "Adaptive AI Inference Runtime",
-    status: "Planned",
+    summary:
+      "A C++ multi-model inference runtime designed around workload-aware scheduling, dynamic batching, and memory-constrained model residency.",
+    technologies: [
+      "C++",
+      "AI Infrastructure",
+      "Scheduling",
+      "Model Serving",
+      "Concurrency",
+    ],
     href: "/software/systems/inference-runtime/",
+    previewCta: "Demo coming soon",
+    githubHref: "https://github.com/simonwen7/adaptive_ai_inference_runtime",
   },
 ];
 
@@ -37,20 +56,38 @@ const businessProjects: LabProject[] = [
   {
     id: "apa-formatter",
     number: "01",
-    title: "APA Document Formatter",
-    status: "Available",
+    title: "Forma APA",
     summary:
-      "An AI-powered document tool that detects APA formatting issues and produces a polished, formatted result.",
-    technologies: ["Python", "FastAPI", "React", "Vite", "python-docx"],
+      "APA 7 Word formatting for students and researchers — fixes safe formatting issues while leaving academic content in the author's control.",
+    technologies: [
+      "React",
+      "FastAPI",
+      "Python",
+      "Product Engineering",
+      "EdTech",
+    ],
     href: "/software/business/apa-formatter/",
+    previewCta: "Try Forma APA",
     githubHref: "https://github.com/simonwen7/apa-doc-formatter",
     liveDemoHref: "https://apa-doc-formatter.vercel.app/",
   },
   {
     id: "job-matcher",
     number: "02",
-    title: "Job Matcher Agent",
+    title: "AI Resume Match",
+    summary:
+      "Compare your resume with a job description to surface strengths, gaps, and actionable improvements.",
+    technologies: [
+      "Next.js",
+      "OpenAI",
+      "TypeScript",
+      "Product Engineering",
+      "Resume Parsing",
+    ],
     href: "/software/business/job-matcher/",
+    previewCta: "Try AI Resume Match",
+    githubHref: "https://github.com/simonwen7/ai-job-matcher",
+    liveDemoHref: "https://ai-job-matcher-11.vercel.app/",
   },
 ];
 
@@ -109,6 +146,37 @@ export const softwareHubSubnavItems: LabSubnavItem[] = [
   { id: "business", label: "Business" },
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
+];
+
+/** Forma APA project subnav */
+export const formaApaSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "workflow", label: "Workflow" },
+  { id: "highlights", label: "Highlights" },
+];
+
+/** AI Resume Match project subnav */
+export const aiResumeMatchSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "workflow", label: "Workflow" },
+  { id: "highlights", label: "Highlights" },
+];
+
+/** Graph Code Intelligence project subnav */
+export const codeIntelligenceSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "why-graph", label: "Why Graph" },
+  { id: "design", label: "Design" },
+  { id: "highlights", label: "Highlights" },
+];
+
+/** Adaptive AI Inference Runtime project subnav */
+export const inferenceRuntimeSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "design", label: "Design" },
+  { id: "adaptive", label: "Adaptive" },
+  { id: "trade-offs", label: "Trade-offs" },
 ];
 
 /** AI Artifact Store project subnav */

@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
 
-import LabProjectSkeletonPage from "@/components/lab/lab-project-skeleton-page";
-import { businessTrack } from "@/components/lab/software-lab-data";
-
-const project = businessTrack.projects.find(
-  (entry) => entry.id === "apa-formatter",
-)!;
+import FormaApaShowcase from "@/components/lab/forma-apa-showcase";
+import LabPageShell from "@/components/lab/lab-page-shell";
+import LabProjectBackLink from "@/components/lab/lab-project-back-link";
+import { formaApaSubnavItems } from "@/components/lab/software-lab-data";
 
 export const metadata: Metadata = {
-  title: "APA Document Formatter | Simon Wen",
+  title: "Forma APA | Simon Wen",
 };
 
 export default function ApaFormatterPage() {
   return (
-    <LabProjectSkeletonPage
-      project={project}
+    <LabPageShell
       accent="violet"
-      subnavLabel="APA Formatter"
-      trackLabel="Business & Product Engineering"
-      backHref="/software/#business"
-      backLabel="← Business & Product Engineering"
-    />
+      subnavLabel="Forma APA"
+      subnavItems={formaApaSubnavItems}
+    >
+      <LabProjectBackLink
+        href="/software/#business"
+        label="← Business & Product Engineering"
+      />
+      <FormaApaShowcase />
+    </LabPageShell>
   );
 }

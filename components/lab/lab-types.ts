@@ -27,6 +27,8 @@ export type LabProject = {
   technologies?: string[];
   /** Project subpage route */
   href?: string;
+  /** Compact card / skeleton maturity action label */
+  previewCta?: string;
   caseStudyHref?: string;
   githubHref?: string;
   liveDemoHref?: string;

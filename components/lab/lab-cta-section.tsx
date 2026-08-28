@@ -70,7 +70,7 @@ export default function LabCtaSection({
             `}
           />
 
-          <div className="relative z-10">
+          <div className="relative z-10 flex w-full flex-col items-center">
             <LabSectionHeading
               eyebrow={eyebrow}
               title={title}
@@ -79,7 +79,7 @@ export default function LabCtaSection({
               align="center"
             />
 
-            <div className="mt-9 flex justify-center">
+            <div className="mt-9 flex w-full justify-center">
               <Link
                 href={href}
                 className={`

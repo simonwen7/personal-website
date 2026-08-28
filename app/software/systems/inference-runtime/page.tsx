@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 
-import LabProjectSkeletonPage from "@/components/lab/lab-project-skeleton-page";
-import { systemsTrack } from "@/components/lab/software-lab-data";
-
-const project = systemsTrack.projects.find(
-  (entry) => entry.id === "inference-runtime",
-)!;
+import InferenceRuntimeShowcase from "@/components/lab/inference-runtime-showcase";
+import LabPageShell from "@/components/lab/lab-page-shell";
+import LabProjectBackLink from "@/components/lab/lab-project-back-link";
+import { inferenceRuntimeSubnavItems } from "@/components/lab/software-lab-data";
 
 export const metadata: Metadata = {
   title: "Adaptive AI Inference Runtime | Simon Wen",
@@ -13,13 +11,16 @@ export const metadata: Metadata = {
 
 export default function InferenceRuntimePage() {
   return (
-    <LabProjectSkeletonPage
-      project={project}
+    <LabPageShell
       accent="cyan"
       subnavLabel="Inference Runtime"
-      trackLabel="Systems Engineering"
-      backHref="/software/#systems"
-      backLabel="← Systems Engineering"
-    />
+      subnavItems={inferenceRuntimeSubnavItems}
+    >
+      <LabProjectBackLink
+        href="/software/#systems"
+        label="← Systems Engineering"
+      />
+      <InferenceRuntimeShowcase />
+    </LabPageShell>
   );
 }

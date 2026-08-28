@@ -29,6 +29,21 @@ const blendThemeStyles: Record<BlendTheme, string> = {
     "bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.05)_0%,rgba(16,185,129,0.018)_36%,transparent_72%)]",
 };
 
+const homeSectionContainer =
+  "relative z-10 mx-auto w-full max-w-6xl";
+
+const homeCardShell =
+  "relative overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.042] shadow-[0_24px_75px_rgba(0,0,0,0.32)] backdrop-blur-xl px-8 py-10 md:px-12 md:py-12";
+
+const homeCardTitle =
+  "mt-5 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl";
+
+const homeCardBody =
+  "mt-4 max-w-2xl text-base leading-7 text-white/55";
+
+const homeEyebrow =
+  "text-xs font-medium uppercase tracking-[0.34em]";
+
 function Reveal({
   children,
   className = "",
@@ -278,16 +293,10 @@ export default function HomeScrollExperience() {
 
         <SectionBlend theme="blue" rise="after-hero" />
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl">
+        <div className={homeSectionContainer}>
           <Reveal>
             <div
-              className="
-                relative flex flex-col justify-between gap-10
-                overflow-hidden rounded-[34px]
-                border border-white/10 bg-white/[0.042]
-                px-9 py-10 shadow-[0_24px_75px_rgba(0,0,0,0.32)]
-                backdrop-blur-xl lg:flex-row lg:items-center
-              "
+              className={`${homeCardShell} flex flex-col justify-between gap-10 lg:flex-row lg:items-center`}
             >
               <div className="relative z-10">
                 <div className="flex items-center gap-3">
@@ -298,16 +307,16 @@ export default function HomeScrollExperience() {
                       shadow-[0_0_14px_rgba(147,197,253,0.85)]
                     "
                   />
-                  <p className="text-xs font-medium uppercase tracking-[0.34em] text-blue-100/50">
+                  <p className={`${homeEyebrow} text-blue-100/50`}>
                     Career Archive
                   </p>
                 </div>
 
-                <h2 className="mt-5 text-4xl font-semibold tracking-[-0.035em]">
+                <h2 className={homeCardTitle}>
                   Experience, skills, and education.
                 </h2>
 
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-white/55">
+                <p className={homeCardBody}>
                   View my resume for a complete overview of my
                   technical experience, education, projects, and
                   professional background.
@@ -379,16 +388,9 @@ export default function HomeScrollExperience() {
       >
         <SectionBlend theme="violet" />
 
-        <div className="relative z-10 mx-auto w-full max-w-4xl">
+        <div className={homeSectionContainer}>
           <Reveal>
-            <div
-              className="
-                relative overflow-hidden rounded-[34px]
-                border border-white/10 bg-white/[0.042]
-                px-8 py-10 shadow-[0_24px_70px_rgba(0,0,0,0.30)]
-                backdrop-blur-xl md:px-12 md:py-12
-              "
-            >
+            <div className={homeCardShell}>
               <div
                 aria-hidden="true"
                 className="
@@ -406,16 +408,16 @@ export default function HomeScrollExperience() {
                       shadow-[0_0_14px_rgba(196,181,253,0.85)]
                     "
                   />
-                  <p className="text-xs font-medium uppercase tracking-[0.34em] text-violet-100/55">
+                  <p className={`${homeEyebrow} text-violet-100/55`}>
                     Beyond the Lab
                   </p>
                 </div>
 
-                <h2 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] sm:text-5xl">
+                <h2 className={`${homeCardTitle} leading-[1.08]`}>
                   Who I am outside software and robotics.
                 </h2>
 
-                <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
+                <p className={homeCardBody}>
                   I&apos;m an undergraduate at the University of
                   Waterloo. Away from the labs, I enjoy piano,
                   basketball, and building LEGO.
@@ -453,86 +455,96 @@ export default function HomeScrollExperience() {
       >
         <SectionBlend theme="emerald" />
 
-        <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
+        <div className={homeSectionContainer}>
           <Reveal>
-            <div className="flex items-center justify-center gap-3">
-              <span
+            <div className={`${homeCardShell} text-center`}>
+              <div
                 aria-hidden="true"
                 className="
-                  h-2 w-2 rounded-full bg-emerald-300
-                  shadow-[0_0_14px_rgba(110,231,183,0.9)]
+                  pointer-events-none absolute inset-0
+                  bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08),transparent_55%)]
                 "
               />
-              <p className="text-xs font-medium uppercase tracking-[0.34em] text-emerald-100/55">
-                Contact Terminal
-              </p>
-            </div>
 
-            <h2 className="mt-6 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
-              Let&apos;s build something useful.
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/[0.58]">
-              Reach out to discuss software engineering, AI,
-              backend systems, robotics, internships, or potential
-              collaborations.
-            </p>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  label: "Email",
-                  value: "simonwensw7@gmail.com",
-                  href: "mailto:simonwensw7@gmail.com",
-                  external: false,
-                },
-                {
-                  label: "LinkedIn",
-                  value: "Connect with me",
-                  href: "https://www.linkedin.com/in/xiemin-wen-40a1742a7",
-                  external: true,
-                },
-                {
-                  label: "GitHub",
-                  value: "View my code",
-                  href: "https://github.com/simonwen7",
-                  external: true,
-                },
-                {
-                  label: "Resume",
-                  value: "View PDF",
-                  href: "/resume.pdf",
-                  external: true,
-                },
-              ].map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={
-                    item.external
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="
-                    rounded-[24px] border border-white/10
-                    bg-white/[0.042] px-6 py-5 text-left
-                    shadow-[0_20px_50px_rgba(0,0,0,0.25)]
-                    backdrop-blur-xl transition
-                    hover:-translate-y-0.5 hover:border-emerald-300/20
-                    hover:bg-white/[0.06]
-                  "
-                >
-                  <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/35">
-                    {item.label}
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="
+                      h-2 w-2 rounded-full bg-emerald-300
+                      shadow-[0_0_14px_rgba(110,231,183,0.9)]
+                    "
+                  />
+                  <p className={`${homeEyebrow} text-emerald-100/55`}>
+                    Contact Terminal
                   </p>
-                  <p className="mt-3 text-sm font-medium text-white/80">
-                    {item.value}
-                  </p>
-                </a>
-              ))}
+                </div>
+
+                <h2 className={homeCardTitle}>
+                  Let&apos;s build something useful.
+                </h2>
+
+                <p className={`${homeCardBody} mx-auto`}>
+                  Reach out to discuss software engineering, AI,
+                  backend systems, robotics, internships, or potential
+                  collaborations.
+                </p>
+              </div>
+
+              <div className="relative z-10 mt-10 grid gap-4 sm:grid-cols-2">
+                {[
+                  {
+                    label: "Email",
+                    value: "simonwensw7@gmail.com",
+                    href: "mailto:simonwensw7@gmail.com",
+                    external: false,
+                  },
+                  {
+                    label: "LinkedIn",
+                    value: "Connect with me",
+                    href: "https://www.linkedin.com/in/xiemin-wen-40a1742a7",
+                    external: true,
+                  },
+                  {
+                    label: "GitHub",
+                    value: "View my code",
+                    href: "https://github.com/simonwen7",
+                    external: true,
+                  },
+                  {
+                    label: "Resume",
+                    value: "View PDF",
+                    href: "/resume.pdf",
+                    external: true,
+                  },
+                ].map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={
+                      item.external
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="
+                      rounded-[24px] border border-white/10
+                      bg-white/[0.042] px-6 py-5 text-left
+                      shadow-[0_20px_50px_rgba(0,0,0,0.25)]
+                      backdrop-blur-xl transition
+                      hover:-translate-y-0.5 hover:border-emerald-300/20
+                      hover:bg-white/[0.06]
+                    "
+                  >
+                    <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/35">
+                      {item.label}
+                    </p>
+                    <p className="mt-3 text-sm font-medium text-white/80">
+                      {item.value}
+                    </p>
+                  </a>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

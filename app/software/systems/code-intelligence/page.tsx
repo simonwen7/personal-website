@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 
-import LabProjectSkeletonPage from "@/components/lab/lab-project-skeleton-page";
-import { systemsTrack } from "@/components/lab/software-lab-data";
-
-const project = systemsTrack.projects.find(
-  (entry) => entry.id === "code-intelligence",
-)!;
+import CodeIntelligenceShowcase from "@/components/lab/code-intelligence-showcase";
+import LabPageShell from "@/components/lab/lab-page-shell";
+import LabProjectBackLink from "@/components/lab/lab-project-back-link";
+import { codeIntelligenceSubnavItems } from "@/components/lab/software-lab-data";
 
 export const metadata: Metadata = {
   title: "Graph-Augmented Code Intelligence Engine | Simon Wen",
@@ -13,13 +11,16 @@ export const metadata: Metadata = {
 
 export default function CodeIntelligencePage() {
   return (
-    <LabProjectSkeletonPage
-      project={project}
+    <LabPageShell
       accent="cyan"
       subnavLabel="Code Intelligence"
-      trackLabel="Systems Engineering"
-      backHref="/software/#systems"
-      backLabel="← Systems Engineering"
-    />
+      subnavItems={codeIntelligenceSubnavItems}
+    >
+      <LabProjectBackLink
+        href="/software/#systems"
+        label="← Systems Engineering"
+      />
+      <CodeIntelligenceShowcase />
+    </LabPageShell>
   );
 }

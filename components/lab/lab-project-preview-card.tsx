@@ -16,17 +16,33 @@ const glowHover: Record<LabAccent, string> = {
   violet: "bg-violet-400/10 group-hover:bg-violet-400/20",
 };
 
-const statusTone: Record<LabAccent, string> = {
-  cyan: "border-cyan-300/20 bg-cyan-400/10 text-cyan-50/80",
-  emerald: "border-emerald-300/20 bg-emerald-400/10 text-emerald-50/80",
-  violet: "border-violet-300/20 bg-violet-400/10 text-violet-50/80",
-};
-
 const ctaTone: Record<LabAccent, string> = {
   cyan: "text-cyan-100/70 group-hover:text-cyan-50",
   emerald: "text-emerald-100/70 group-hover:text-emerald-50",
   violet: "text-violet-100/70 group-hover:text-violet-50",
 };
+
+const systemsStackLayers = [
+  {
+    layer: "Data",
+    title: "AI Artifact Store",
+    tags: "Storage · Integrity · Recovery",
+  },
+  {
+    layer: "Intelligence",
+    title: "Code Intelligence",
+    tags: "Structure · Retrieval · Ranking",
+  },
+  {
+    layer: "Compute",
+    title: "Inference Runtime",
+    tags: "Scheduling · Batching · Serving",
+  },
+] as const;
+
+function getPreviewCta(project: LabProject) {
+  return project.previewCta ?? "Explore Project";
+}
 
 type LabProjectPreviewCardProps = {
   project: LabProject;
@@ -43,6 +59,9 @@ export default function LabProjectPreviewCard({
   if (!project.href) {
     return null;
   }
+
+  const ctaLabel = getPreviewCta(project);
+  const ctaMuted = ctaLabel === "Demo coming soon";
 
   return (
     <Link
@@ -76,17 +95,6 @@ export default function LabProjectPreviewCard({
           <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/40">
             {project.number}
           </span>
-          {project.status ? (
-            <span
-              className={`
-                rounded-full border px-2.5 py-0.5
-                text-[10px] font-medium uppercase tracking-[0.16em]
-                ${statusTone[accent]}
-              `}
-            >
-              {project.status}
-            </span>
-          ) : null}
         </div>
 
         <h3
@@ -133,16 +141,18 @@ export default function LabProjectPreviewCard({
         <p
           className={`
             mt-auto flex items-center gap-2 pt-6 text-sm font-medium
-            ${ctaTone[accent]}
+            ${ctaMuted ? "text-white/35" : ctaTone[accent]}
           `}
         >
-          Explore Project
-          <span
-            aria-hidden="true"
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          >
-            →
-          </span>
+          {ctaLabel}
+          {!ctaMuted ? (
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          ) : null}
         </p>
       </div>
 
@@ -150,17 +160,28 @@ export default function LabProjectPreviewCard({
         <div
           aria-hidden="true"
           className="
-            relative hidden min-h-[120px] shrink-0
+            relative z-10 flex flex-col justify-center gap-2
             border-t border-white/[0.06] bg-black/20
-            lg:block lg:min-h-0 lg:w-[38%] lg:border-l lg:border-t-0
+            p-4 lg:w-[38%] lg:shrink-0 lg:border-l lg:border-t-0 lg:p-5
           "
         >
-          <div
-            className="
-              absolute inset-0
-              bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_62%)]
-            "
-          />
+          {systemsStackLayers.map((item) => (
+            <div
+              key={item.layer}
+              className="
+                rounded-xl border border-white/10
+                bg-white/[0.03] px-3 py-2.5
+              "
+            >
+              <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-cyan-100/45">
+                {item.layer}
+              </p>
+              <p className="mt-1 text-sm font-medium text-white/80">
+                {item.title}
+              </p>
+              <p className="mt-0.5 text-[11px] text-white/40">{item.tags}</p>
+            </div>
+          ))}
         </div>
       ) : null}
     </Link>
