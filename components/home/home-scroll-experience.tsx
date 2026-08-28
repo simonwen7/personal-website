@@ -92,7 +92,7 @@ function SectionBlend({
 }) {
   const riseClass =
     rise === "after-hero"
-      ? "top-[-180px] h-[400px]"
+      ? "top-[-40px] h-[320px]"
       : "top-[-220px] h-[440px]";
 
   return (
@@ -249,14 +249,33 @@ export default function HomeScrollExperience() {
         <LabShell />
       </div>
 
-      {/* Resume */}
+      {/* Resume
+          Physical gap target: match Resume → Beyond rhythm
+          (= previous section bottom pad + this section top pad).
+          Hero has no bottom pad, so Resume uses 2× top pad. */}
       <section
         id="resume"
         className="
           relative z-10 scroll-mt-[88px] overflow-x-clip
-          px-8 py-14 sm:py-16 lg:py-20
+          px-8
+          pt-28 pb-14
+          sm:pt-32 sm:pb-16
+          lg:pt-40 lg:pb-20
         "
       >
+        {/*
+          Visual-only black fade DOWN from the Hero boundary.
+          Absolute — does not contribute document-flow height.
+        */}
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none absolute inset-x-0 top-0 z-0
+            h-24 sm:h-28 lg:h-36
+            bg-[linear-gradient(to_bottom,#05070b_0%,rgba(5,7,11,0.72)_32%,rgba(5,7,11,0.28)_68%,transparent_100%)]
+          "
+        />
+
         <SectionBlend theme="blue" rise="after-hero" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl">
