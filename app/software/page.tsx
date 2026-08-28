@@ -1,15 +1,18 @@
 import LabCtaSection from "@/components/lab/lab-cta-section";
 import LabExperienceCard from "@/components/lab/lab-experience-card";
 import LabPageShell from "@/components/lab/lab-page-shell";
+import LabProjectPreviewCard from "@/components/lab/lab-project-preview-card";
 import LabSectionHeading from "@/components/lab/lab-section-heading";
-import LabTrackEntry from "@/components/lab/lab-track-entry";
 import {
+  businessTrack,
   softwareExperienceEntries,
   softwareHubSubnavItems,
-  softwareTracks,
+  systemsTrack,
 } from "@/components/lab/software-lab-data";
 
 export default function SoftwareLabPage() {
+  const [artifactStore, ...otherSystemsProjects] = systemsTrack.projects;
+
   return (
     <LabPageShell
       accent="cyan"
@@ -85,7 +88,10 @@ export default function SoftwareLabPage() {
       </section>
 
       {/* 02 — Systems Engineering */}
-      <section className="relative overflow-x-clip px-8 py-16">
+      <section
+        id="systems"
+        className="relative scroll-mt-[120px] overflow-x-clip px-8 py-16"
+      >
         <div className="relative z-10 mx-auto w-full max-w-6xl">
           <LabSectionHeading
             accent="cyan"
@@ -93,18 +99,31 @@ export default function SoftwareLabPage() {
             title="Systems Engineering"
             description="Infrastructure, storage, retrieval, and runtime systems."
           />
-          <div className="mt-10">
-            <LabTrackEntry
-              track={softwareTracks[0]}
-              index={1}
-              emphasized
+
+          <div className="mt-10 flex flex-col gap-4">
+            <LabProjectPreviewCard
+              project={artifactStore}
+              accent="cyan"
+              featured
             />
+            <div className="grid gap-4 lg:grid-cols-2">
+              {otherSystemsProjects.map((project) => (
+                <LabProjectPreviewCard
+                  key={project.id}
+                  project={project}
+                  accent="cyan"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 03 — Business & Product Engineering */}
-      <section className="relative overflow-x-clip px-8 py-16">
+      <section
+        id="business"
+        className="relative scroll-mt-[120px] overflow-x-clip px-8 py-16"
+      >
         <div className="relative z-10 mx-auto w-full max-w-6xl">
           <LabSectionHeading
             accent="violet"
@@ -112,8 +131,15 @@ export default function SoftwareLabPage() {
             title="Business & Product Engineering"
             description="User-facing software, AI products, and practical workflows."
           />
-          <div className="mt-10">
-            <LabTrackEntry track={softwareTracks[1]} index={2} />
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            {businessTrack.projects.map((project) => (
+              <LabProjectPreviewCard
+                key={project.id}
+                project={project}
+                accent="violet"
+              />
+            ))}
           </div>
         </div>
       </section>

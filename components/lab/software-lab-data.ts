@@ -12,8 +12,9 @@ const systemsProjects: LabProject[] = [
     title: "AI Artifact Store",
     status: "Completed",
     summary:
-      "A C++20 content-addressed store for large AI artifacts, with resumable push/pull and multi-node replication.",
-    technologies: ["C++20", "CMake", "PostgreSQL", "Boost.Asio"],
+      "A C++20 distributed artifact store for AI/ML workloads, built around content addressing, resumable transfer, replication, and failure recovery.",
+    technologies: ["C++20", "PostgreSQL", "Boost.Asio", "Distributed Storage"],
+    href: "/software/systems/ai-artifact-store/",
     githubHref: "https://github.com/simonwen7/ai-artifact-store",
   },
   {
@@ -21,12 +22,14 @@ const systemsProjects: LabProject[] = [
     number: "02",
     title: "Graph-Augmented Code Intelligence Engine",
     status: "Planned",
+    href: "/software/systems/code-intelligence/",
   },
   {
     id: "inference-runtime",
     number: "03",
     title: "Adaptive AI Inference Runtime",
     status: "Planned",
+    href: "/software/systems/inference-runtime/",
   },
 ];
 
@@ -39,7 +42,7 @@ const businessProjects: LabProject[] = [
     summary:
       "An AI-powered document tool that detects APA formatting issues and produces a polished, formatted result.",
     technologies: ["Python", "FastAPI", "React", "Vite", "python-docx"],
-    // caseStudyHref temporarily omitted — legacy /projects/apa-formatter/ is light-theme
+    href: "/software/business/apa-formatter/",
     githubHref: "https://github.com/simonwen7/apa-doc-formatter",
     liveDemoHref: "https://apa-doc-formatter.vercel.app/",
   },
@@ -47,6 +50,7 @@ const businessProjects: LabProject[] = [
     id: "job-matcher",
     number: "02",
     title: "Job Matcher Agent",
+    href: "/software/business/job-matcher/",
   },
 ];
 
@@ -59,7 +63,7 @@ export const softwareTracks: SoftwareTrack[] = [
     id: "systems",
     label: "Systems Engineering",
     shortLabel: "Systems",
-    href: "/software/systems/",
+    href: "/software/#systems",
     focusLine: "Infrastructure · Storage · Retrieval · Runtime",
     accent: "cyan",
     projects: systemsProjects,
@@ -68,7 +72,7 @@ export const softwareTracks: SoftwareTrack[] = [
     id: "business",
     label: "Business & Product Engineering",
     shortLabel: "Business",
-    href: "/software/business/",
+    href: "/software/#business",
     focusLine: "User-facing software · AI products · workflows",
     accent: "violet",
     projects: businessProjects,
@@ -98,15 +102,26 @@ export const softwareExperienceEntries: LabExperienceEntry[] = [
   },
 ];
 
-/** Hub local nav: Overview/Experience/Contact scroll; Systems/Business route. */
+/** Hub local nav — all in-page anchors on `/software/`. */
 export const softwareHubSubnavItems: LabSubnavItem[] = [
   { id: "overview", label: "Overview" },
-  { id: "systems", label: "Systems", href: "/software/systems/" },
-  { id: "business", label: "Business", href: "/software/business/" },
+  { id: "systems", label: "Systems" },
+  { id: "business", label: "Business" },
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
 
+/** AI Artifact Store project subnav */
+export const artifactStoreSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "artifact-store-demo", label: "Demo" },
+  { id: "failure", label: "Failure" },
+  { id: "identity", label: "Identity" },
+  { id: "performance", label: "Performance" },
+  { id: "architecture", label: "Architecture" },
+];
+
+/** @deprecated Category listing pages redirect to `/software/#systems`. */
 export const systemsSubnavItems: LabSubnavItem[] = [
   { id: "overview", label: "Overview" },
   { id: "artifact-store", label: "Artifact Store" },
@@ -115,6 +130,7 @@ export const systemsSubnavItems: LabSubnavItem[] = [
   { id: "contact", label: "Contact" },
 ];
 
+/** @deprecated Category listing pages redirect to `/software/#business`. */
 export const businessSubnavItems: LabSubnavItem[] = [
   { id: "overview", label: "Overview" },
   { id: "apa-formatter", label: "APA Formatter" },

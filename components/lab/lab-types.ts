@@ -25,6 +25,8 @@ export type LabProject = {
   summary?: string;
   status?: LabProjectStatus | string;
   technologies?: string[];
+  /** Project subpage route */
+  href?: string;
   caseStudyHref?: string;
   githubHref?: string;
   liveDemoHref?: string;
