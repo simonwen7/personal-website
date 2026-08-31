@@ -30,7 +30,7 @@ const systemsProjects: LabProject[] = [
       "Graph Algorithms",
     ],
     href: "/software/systems/code-intelligence/",
-    previewCta: "Demo coming soon",
+    previewCta: "View Demo",
     githubHref: "https://github.com/simonwen7/graph_code_intelligence",
   },
   {
@@ -222,9 +222,12 @@ export const aiResumeMatchSubnavItems: LabSubnavItem[] = [
 /** Graph Code Intelligence project subnav */
 export const codeIntelligenceSubnavItems: LabSubnavItem[] = [
   { id: "overview", label: "Overview" },
-  { id: "why-graph", label: "Why Graph" },
-  { id: "design", label: "Design" },
-  { id: "highlights", label: "Highlights" },
+  { id: "structure", label: "Structure" },
+  { id: "retrieval", label: "Retrieval" },
+  { id: "benchmark", label: "Benchmark" },
+  { id: "incremental", label: "Incremental" },
+  { id: "context", label: "Context" },
+  { id: "proof", label: "Proof" },
 ];
 
 /** Adaptive AI Inference Runtime project subnav */
@@ -239,7 +242,6 @@ export const inferenceRuntimeSubnavItems: LabSubnavItem[] = [
 /** AI Artifact Store project subnav */
 export const artifactStoreSubnavItems: LabSubnavItem[] = [
   { id: "overview", label: "Overview" },
-  { id: "artifact-store-demo", label: "Demo" },
   { id: "failure", label: "Failure" },
   { id: "identity", label: "Identity" },
   { id: "performance", label: "Performance" },

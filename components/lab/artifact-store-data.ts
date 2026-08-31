@@ -44,4 +44,5 @@ export const artifactStoreFailureSteps = [
 export const artifactStoreGithub =
   "https://github.com/simonwen7/ai-artifact-store";
 
-export const artifactStoreDemoVideo = "/media/ai-artifact-store/demo.mp4";
+export const artifactStoreDemoUrl =
+  "https://ai-artifact-store.vercel.app/";

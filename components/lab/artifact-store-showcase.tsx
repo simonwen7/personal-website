@@ -2,13 +2,11 @@ import type { ReactNode } from "react";
 
 import {
   artifactStoreBenchmarks,
-  artifactStoreDemoVideo,
+  artifactStoreDemoUrl,
   artifactStoreFailureSteps,
   artifactStoreGithub,
   artifactStoreProof,
 } from "./artifact-store-data";
-
-const DEMO_VIDEO_ID = "artifact-store-demo";
 
 export default function ArtifactStoreShowcase() {
   return (
@@ -47,7 +45,9 @@ export default function ArtifactStoreShowcase() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={`#${DEMO_VIDEO_ID}`}
+                href={artifactStoreDemoUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="
                   rounded-full border border-cyan-300/20
                   bg-cyan-400/10 px-5 py-2.5
@@ -55,12 +55,12 @@ export default function ArtifactStoreShowcase() {
                   transition hover:bg-cyan-400/20
                 "
               >
-                Watch Demo ▶
+                View Demo ↗
               </a>
               <a
                 href={artifactStoreGithub}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
                 className="
                   rounded-full border border-white/15
                   bg-white/[0.07] px-5 py-2.5
@@ -73,55 +73,6 @@ export default function ArtifactStoreShowcase() {
             </div>
           </div>
         </header>
-
-        {/* ── Demo video ── */}
-        <div id={DEMO_VIDEO_ID} className="scroll-mt-[120px]">
-          <div
-            className="
-              relative overflow-hidden rounded-[32px]
-              border border-white/10 bg-white/[0.035]
-              shadow-[0_28px_90px_rgba(0,0,0,0.38)]
-              backdrop-blur-xl
-            "
-          >
-            <div
-              aria-hidden="true"
-              className="
-                pointer-events-none absolute inset-0
-                bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.10),transparent_42%)]
-              "
-            />
-
-            <div className="relative z-10 border-b border-white/[0.07] px-6 py-5 sm:px-8">
-              <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/40">
-                Interactive Systems Demo
-              </p>
-              <p className="mt-2 text-sm text-white/55">
-                Node failure · Verified recovery · Replica repair
-              </p>
-            </div>
-
-            <div className="relative z-10 p-4 sm:p-6">
-              <div
-                className="
-                  overflow-hidden rounded-[20px]
-                  border border-cyan-300/15 bg-black/50
-                "
-              >
-                <video
-                  className="block h-auto w-full"
-                  controls
-                  preload="metadata"
-                  playsInline
-                  aria-label="AI Artifact Store interactive systems demo recording"
-                >
-                  <source src={artifactStoreDemoVideo} type="video/mp4" />
-                  Your browser does not support embedded video playback.
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* ── Story 1: Failure recovery ── */}
         <StorySection
@@ -181,19 +132,39 @@ export default function ArtifactStoreShowcase() {
             <div className="mx-auto flex min-w-[280px] max-w-lg flex-col items-center gap-3 text-center">
               <DiagramNode label="Raw Artifact" tone="neutral" />
               <DiagramArrow />
-              <DiagramNode label="Object" tone="primary" sub="SHA-256(entire raw object)" />
+              <DiagramNode
+                label="Object"
+                tone="primary"
+                sub="SHA-256(entire raw object)"
+              />
               <div className="flex w-full items-start justify-center gap-6 sm:gap-10">
                 <div className="flex flex-col items-center gap-3">
                   <DiagramArrow short />
-                  <DiagramNode label="FixedSize Layout" tone="secondary" sub="physical chunking" />
+                  <DiagramNode
+                    label="FixedSize Layout"
+                    tone="secondary"
+                    sub="physical chunking"
+                  />
                   <DiagramArrow short />
-                  <DiagramNode label="Chunks" tone="muted" sub="SHA-256(chunk bytes)" />
+                  <DiagramNode
+                    label="Chunks"
+                    tone="muted"
+                    sub="SHA-256(chunk bytes)"
+                  />
                 </div>
                 <div className="flex flex-col items-center gap-3">
                   <DiagramArrow short />
-                  <DiagramNode label="FastCDC Layout" tone="secondary" sub="physical chunking" />
+                  <DiagramNode
+                    label="FastCDC Layout"
+                    tone="secondary"
+                    sub="physical chunking"
+                  />
                   <DiagramArrow short />
-                  <DiagramNode label="Chunks" tone="muted" sub="SHA-256(chunk bytes)" />
+                  <DiagramNode
+                    label="Chunks"
+                    tone="muted"
+                    sub="SHA-256(chunk bytes)"
+                  />
                 </div>
               </div>
             </div>
@@ -340,11 +311,11 @@ export default function ArtifactStoreShowcase() {
         </StorySection>
 
         {/* ── Closing CTA ── */}
-        <div className="flex justify-center pt-2">
+        <div className="flex flex-wrap justify-center gap-3 pt-2">
           <a
-            href={artifactStoreGithub}
+            href={artifactStoreDemoUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
             className="
               rounded-full border border-cyan-300/20
               bg-cyan-400/10 px-6 py-3
@@ -352,7 +323,20 @@ export default function ArtifactStoreShowcase() {
               transition hover:bg-cyan-400/20
             "
           >
-            View on GitHub ↗
+            View Demo ↗
+          </a>
+          <a
+            href={artifactStoreGithub}
+            target="_blank"
+            rel="noreferrer"
+            className="
+              rounded-full border border-white/15
+              bg-white/[0.07] px-6 py-3
+              text-sm font-medium text-white/85
+              transition hover:bg-white/[0.12] hover:text-white
+            "
+          >
+            GitHub ↗
           </a>
         </div>
       </div>
@@ -403,14 +387,10 @@ function DiagramNode({
   small?: boolean;
 }) {
   const toneClass = {
-    primary:
-      "border-cyan-300/25 bg-cyan-400/10 text-cyan-50",
-    secondary:
-      "border-white/15 bg-white/[0.06] text-white/80",
-    neutral:
-      "border-white/12 bg-white/[0.04] text-white/70",
-    muted:
-      "border-white/10 bg-black/30 text-white/55",
+    primary: "border-cyan-300/25 bg-cyan-400/10 text-cyan-50",
+    secondary: "border-white/15 bg-white/[0.06] text-white/80",
+    neutral: "border-white/12 bg-white/[0.04] text-white/70",
+    muted: "border-white/10 bg-black/30 text-white/55",
   }[tone];
 
   return (
@@ -423,9 +403,7 @@ function DiagramNode({
       `}
     >
       <p className={`font-medium ${small ? "text-[11px]" : ""}`}>{label}</p>
-      {sub ? (
-        <p className="mt-1 text-[10px] text-white/45">{sub}</p>
-      ) : null}
+      {sub ? <p className="mt-1 text-[10px] text-white/45">{sub}</p> : null}
     </div>
   );
 }
@@ -456,16 +434,10 @@ function BenchmarkColumn({
   reuseBar: number;
   accent: "cyan" | "muted";
 }) {
-  const barColor =
-    accent === "cyan" ? "bg-cyan-400/70" : "bg-white/25";
+  const barColor = accent === "cyan" ? "bg-cyan-400/70" : "bg-white/25";
 
   return (
-    <div
-      className="
-        rounded-[28px] border border-white/10
-        bg-white/[0.04] p-6 sm:p-8
-      "
-    >
+    <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6 sm:p-8">
       <h4 className="text-xl font-semibold text-white">{title}</h4>
 
       <div className="mt-8 space-y-6">
