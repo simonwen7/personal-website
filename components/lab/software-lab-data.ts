@@ -38,16 +38,16 @@ const systemsProjects: LabProject[] = [
     number: "03",
     title: "Adaptive AI Inference Runtime",
     summary:
-      "A C++ multi-model inference runtime designed around workload-aware scheduling, dynamic batching, and memory-constrained model residency.",
+      "A C++20 single-host inference control plane with workload-aware scheduling, residency-aware routing, worker-local dynamic batching, and optional real llama.cpp GGUF execution.",
     technologies: [
-      "C++",
+      "C++20",
+      "Concurrency",
       "AI Infrastructure",
       "Scheduling",
       "Model Serving",
-      "Concurrency",
     ],
     href: "/software/systems/inference-runtime/",
-    previewCta: "Demo coming soon",
+    previewCta: "View Demo",
     githubHref: "https://github.com/simonwen7/adaptive_ai_inference_runtime",
   },
 ];
@@ -233,10 +233,13 @@ export const codeIntelligenceSubnavItems: LabSubnavItem[] = [
 /** Adaptive AI Inference Runtime project subnav */
 export const inferenceRuntimeSubnavItems: LabSubnavItem[] = [
   { id: "overview", label: "Overview" },
-  { id: "problem", label: "Problem" },
-  { id: "design", label: "Design" },
-  { id: "adaptive", label: "Adaptive" },
-  { id: "trade-offs", label: "Trade-offs" },
+  { id: "lifecycle", label: "Lifecycle" },
+  { id: "policies", label: "Policies" },
+  { id: "batching", label: "Batching" },
+  { id: "residency", label: "Residency" },
+  { id: "backend", label: "Backend" },
+  { id: "reliability", label: "Reliability" },
+  { id: "proof", label: "Proof" },
 ];
 
 /** AI Artifact Store project subnav */
