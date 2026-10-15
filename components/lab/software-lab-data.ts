@@ -50,6 +50,18 @@ const systemsProjects: LabProject[] = [
     previewCta: "View Demo",
     githubHref: "https://github.com/simonwen7/adaptive_ai_inference_runtime",
   },
+  {
+    id: "quantforge",
+    number: "04",
+    title: "QuantForge",
+    summary:
+      "A deterministic event-driven backtesting engine with causal signal timing, Decimal portfolio accounting, and a six-workspace research terminal over reproducible synthetic scenarios.",
+    technologies: ["Python", "FastAPI", "Next.js", "Event-Driven Simulation"],
+    href: "/software/systems/quantforge/",
+    previewCta: "Explore Project",
+    githubHref: "https://github.com/simonwen7/QuantForge",
+    liveDemoHref: "https://quantforge-web-ashy.vercel.app/",
+  },
 ];
 
 const businessProjects: LabProject[] = [
@@ -89,6 +101,19 @@ const businessProjects: LabProject[] = [
     githubHref: "https://github.com/simonwen7/ai-job-matcher",
     liveDemoHref: "https://ai-job-matcher-11.vercel.app/",
   },
+  {
+    id: "local-first-workspace",
+    number: "03",
+    title: "Local-First Collaborative Workspace",
+    summary:
+      "A collaborative editor built on a custom operation-based CRDT, with IndexedDB durability and a two-replica browser lab that demonstrates deterministic convergence under concurrent edits.",
+    technologies: ["React", "TypeScript", "Custom CRDT", "IndexedDB"],
+    href: "/software/business/local-first-workspace/",
+    previewCta: "Explore Project",
+    githubHref:
+      "https://github.com/simonwen7/local-first-collaborative-workspace",
+    liveDemoHref: "https://local-first-collaborative-workspace.vercel.app/",
+  },
 ];
 
 /**
@@ -101,7 +126,7 @@ export const softwareTracks: SoftwareTrack[] = [
     label: "Systems Engineering",
     shortLabel: "Systems",
     href: "/software/#systems",
-    focusLine: "Infrastructure · Storage · Retrieval · Runtime",
+    focusLine: "Infrastructure · Storage · Retrieval · Runtime · Simulation",
     accent: "cyan",
     projects: systemsProjects,
   },
@@ -239,6 +264,30 @@ export const inferenceRuntimeSubnavItems: LabSubnavItem[] = [
   { id: "residency", label: "Residency" },
   { id: "backend", label: "Backend" },
   { id: "reliability", label: "Reliability" },
+  { id: "proof", label: "Proof" },
+];
+
+/** QuantForge project subnav */
+export const quantforgeSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "architecture", label: "Architecture" },
+  { id: "causality", label: "Causality" },
+  { id: "determinism", label: "Determinism" },
+  { id: "ledger", label: "Ledger" },
+  { id: "terminal", label: "Terminal" },
+  { id: "proof", label: "Proof" },
+];
+
+/** Local-First Collaborative Workspace project subnav */
+export const localFirstWorkspaceSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "challenge", label: "Challenge" },
+  { id: "convergence", label: "Convergence" },
+  { id: "identity", label: "Identity" },
+  { id: "persistence", label: "Persistence" },
+  { id: "inspector", label: "Inspector" },
+  { id: "architecture", label: "Architecture" },
   { id: "proof", label: "Proof" },
 ];
 

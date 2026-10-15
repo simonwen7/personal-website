@@ -17,6 +17,7 @@ import {
   softwareHubSubnavItems,
   systemsTrack,
 } from "@/components/lab/software-lab-data";
+import type { LabAccent, LabProject } from "@/components/lab/lab-types";
 
 export default function SoftwareLabPage() {
   const [artifactStore, ...otherSystemsProjects] = systemsTrack.projects;
@@ -80,7 +81,7 @@ export default function SoftwareLabPage() {
             accent="cyan"
             eyebrow="02 — Systems"
             title="Systems Engineering"
-            description="Infrastructure, storage, retrieval, and runtime systems."
+            description="Infrastructure, storage, retrieval, runtime, and simulation."
           />
 
           <div className={`${hubContentGap} flex flex-col gap-3`}>
@@ -89,15 +90,7 @@ export default function SoftwareLabPage() {
               accent="cyan"
               featured
             />
-            <div className="grid gap-3 lg:grid-cols-2">
-              {otherSystemsProjects.map((project) => (
-                <LabProjectPreviewCard
-                  key={project.id}
-                  project={project}
-                  accent="cyan"
-                />
-              ))}
-            </div>
+            <ProjectGrid projects={otherSystemsProjects} accent="cyan" />
           </div>
         </div>
       </section>
@@ -112,14 +105,8 @@ export default function SoftwareLabPage() {
             description="User-facing software, AI products, and practical workflows."
           />
 
-          <div className={`${hubContentGap} grid gap-3 lg:grid-cols-2`}>
-            {businessTrack.projects.map((project) => (
-              <LabProjectPreviewCard
-                key={project.id}
-                project={project}
-                accent="violet"
-              />
-            ))}
+          <div className={hubContentGap}>
+            <ProjectGrid projects={businessTrack.projects} accent="violet" />
           </div>
         </div>
       </section>
@@ -143,5 +130,28 @@ export default function SoftwareLabPage() {
         </div>
       </section>
     </LabPageShell>
+  );
+}
+
+function ProjectGrid({
+  projects,
+  accent,
+}: {
+  projects: LabProject[];
+  accent: LabAccent;
+}) {
+  return (
+    <div className="grid gap-3 lg:grid-cols-2">
+      {projects.map((project, index) => {
+        const spansRow =
+          projects.length % 2 === 1 && index === projects.length - 1;
+
+        return (
+          <div key={project.id} className={spansRow ? "lg:col-span-2" : undefined}>
+            <LabProjectPreviewCard project={project} accent={accent} />
+          </div>
+        );
+      })}
+    </div>
   );
 }
