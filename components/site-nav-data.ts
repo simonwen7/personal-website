@@ -31,12 +31,6 @@ export const centerNavItems: NavItem[] = [
     routePath: "/robotics",
   },
   {
-    label: "Resume",
-    href: "/#resume",
-    kind: "home-section",
-    sectionId: "resume",
-  },
-  {
     label: "Beyond the Lab",
     href: "/about/",
     kind: "route",

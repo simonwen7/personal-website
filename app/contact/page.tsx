@@ -17,12 +17,6 @@ const contactLinks = [
       description: "Explore my software engineering projects and repositories.",
       href: "https://github.com/simonwen7",
     },
-    {
-      title: "Resume",
-      value: "Download resume",
-      description: "See my technical skills, experience, and selected projects.",
-      href: "/resume.pdf",
-    },
   ];
   
   export default function ContactPage() {
@@ -83,7 +77,7 @@ const contactLinks = [
             </section>
           </div>
   
-          <section className="mt-10 grid gap-6 md:grid-cols-2">
+          <section className="mt-10 grid gap-6 md:grid-cols-3">
             {contactLinks.map((link) => (
               <a
                 key={link.title}

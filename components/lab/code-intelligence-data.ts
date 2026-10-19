@@ -7,7 +7,7 @@ export const codeIntelligenceDemoUrl =
   "https://graph-code-intelligence.vercel.app/";
 
 export const codeIntelligenceHero = {
-  eyebrow: "02 / Graph-Augmented Code Intelligence",
+  eyebrow: "05 / Graph-Augmented Code Intelligence",
   techLine: "Python · Static Analysis · Information Retrieval",
   title: "Graph-Augmented Code Intelligence Engine",
   headline: "Search code as a program, not just as text.",

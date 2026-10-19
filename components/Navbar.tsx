@@ -32,7 +32,7 @@ export default function Navbar() {
       return;
     }
 
-    const sectionIds = ["resume", "about", "contact"];
+    const sectionIds = ["about", "contact"];
 
     const updateActiveSection = () => {
       const scrollPosition = window.scrollY + 160;
@@ -90,7 +90,7 @@ export default function Navbar() {
       );
     }
 
-    // home-section items (Resume / Contact)
+    // home-section items (Contact)
     return isHome && homeSection === item.sectionId;
   };
 

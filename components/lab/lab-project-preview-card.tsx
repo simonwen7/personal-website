@@ -73,7 +73,7 @@ export default function LabProjectPreviewCard({
         backdrop-blur-xl transition duration-300
         hover:-translate-y-1
         ${accentHover[accent]}
-        ${featured ? "flex-col gap-0 lg:flex-row lg:items-stretch" : "min-h-[190px] flex-col"}
+        ${featured ? "flex-col gap-0 lg:flex-row lg:items-stretch" : "h-full min-h-[190px] flex-col"}
       `}
     >
       <span
@@ -110,7 +110,7 @@ export default function LabProjectPreviewCard({
           <p
             className={`
               mt-2.5 leading-6 text-white/55
-              ${featured ? "max-w-2xl text-sm" : "text-sm line-clamp-3"}
+              ${featured ? "max-w-2xl text-sm" : "text-sm"}
             `}
           >
             {project.summary}

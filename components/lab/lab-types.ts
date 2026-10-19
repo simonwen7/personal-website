@@ -81,7 +81,7 @@ export type SoftwareHubExperienceEntry = {
   organizationContext: string;
   period: string;
   description: string;
-  achievements: readonly [string, string];
+  achievements: readonly string[];
   tags: readonly string[];
   proofPoints: readonly SoftwareExperienceProofPoint[];
 };

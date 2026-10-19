@@ -1,28 +1,14 @@
 import type { Metadata } from "next";
 
-import LabPageShell from "@/components/lab/lab-page-shell";
-import LabProjectBackLink from "@/components/lab/lab-project-back-link";
-import LocalFirstWorkspaceShowcase from "@/components/lab/local-first-workspace-showcase";
-import { localFirstWorkspaceSubnavItems } from "@/components/lab/software-lab-data";
+import LabHashRedirect from "@/components/lab/lab-hash-redirect";
 
 export const metadata: Metadata = {
   title: "Local-First Collaborative Workspace | Simon Wen",
-  description:
-    "A local-first collaborative editor built on a custom operation-based CRDT, with a two-replica in-browser convergence lab.",
+  robots: { index: false, follow: false },
 };
 
-export default function LocalFirstWorkspacePage() {
+export default function LocalFirstBusinessAlias() {
   return (
-    <LabPageShell
-      accent="violet"
-      subnavLabel="Local-First Workspace"
-      subnavItems={localFirstWorkspaceSubnavItems}
-    >
-      <LabProjectBackLink
-        href="/software/#business"
-        label="← Business & Product Engineering"
-      />
-      <LocalFirstWorkspaceShowcase />
-    </LabPageShell>
+    <LabHashRedirect destination="/software/systems/local-first-workspace/" />
   );
 }

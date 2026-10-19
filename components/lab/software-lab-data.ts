@@ -7,19 +7,56 @@ import type {
 
 const systemsProjects: LabProject[] = [
   {
-    id: "artifact-store",
+    id: "streamforge",
     number: "01",
+    title: "StreamForge",
+    summary:
+      "Java, Spring Boot, Kafka, and PostgreSQL telemetry processing, with transactional outbox delivery, idempotent processing, failure recovery, and a browser-local pipeline simulator.",
+    technologies: ["Java", "Spring Boot", "Kafka", "PostgreSQL"],
+    href: "/software/systems/streamforge/",
+    previewCta: "Explore Project",
+    githubHref: "https://github.com/simonwen7/StreamForge",
+    liveDemoHref: "https://stream-forge-eight-woad.vercel.app/",
+  },
+  {
+    id: "quantforge",
+    number: "02",
+    title: "QuantForge",
+    summary:
+      "A deterministic event-driven backtesting engine with causal signal timing, Decimal portfolio accounting, and a six-workspace research terminal over reproducible synthetic scenarios.",
+    technologies: ["Python", "FastAPI", "Next.js", "Event-Driven Simulation"],
+    href: "/software/systems/quantforge/",
+    previewCta: "Explore Project",
+    githubHref: "https://github.com/simonwen7/QuantForge",
+    liveDemoHref: "https://quantforge-web-ashy.vercel.app/",
+  },
+  {
+    id: "local-first-workspace",
+    number: "03",
+    title: "Local-First Collaborative Workspace",
+    summary:
+      "A collaborative editor built on a custom operation-based CRDT, with IndexedDB durability and a two-replica browser lab that demonstrates deterministic convergence under concurrent edits.",
+    technologies: ["React", "TypeScript", "Custom CRDT", "IndexedDB"],
+    href: "/software/systems/local-first-workspace/",
+    previewCta: "Explore Project",
+    githubHref:
+      "https://github.com/simonwen7/local-first-collaborative-workspace",
+    liveDemoHref: "https://local-first-collaborative-workspace.vercel.app/",
+  },
+  {
+    id: "artifact-store",
+    number: "04",
     title: "AI Artifact Store",
     summary:
       "A C++20 distributed artifact store for AI/ML workloads, built around content addressing, resumable transfer, replication, and failure recovery.",
     technologies: ["C++20", "PostgreSQL", "Boost.Asio", "Distributed Storage"],
     href: "/software/systems/ai-artifact-store/",
-    previewCta: "View Demo",
+    previewCta: "Explore Project",
     githubHref: "https://github.com/simonwen7/ai-artifact-store",
   },
   {
     id: "code-intelligence",
-    number: "02",
+    number: "05",
     title: "Graph-Augmented Code Intelligence Engine",
     summary:
       "Structural code intelligence built around program relationships, retrieval, and graph-aware context selection.",
@@ -30,12 +67,12 @@ const systemsProjects: LabProject[] = [
       "Graph Algorithms",
     ],
     href: "/software/systems/code-intelligence/",
-    previewCta: "View Demo",
+    previewCta: "Explore Project",
     githubHref: "https://github.com/simonwen7/graph_code_intelligence",
   },
   {
     id: "inference-runtime",
-    number: "03",
+    number: "06",
     title: "Adaptive AI Inference Runtime",
     summary:
       "A C++20 single-host inference control plane with workload-aware scheduling, residency-aware routing, worker-local dynamic batching, and optional real llama.cpp GGUF execution.",
@@ -47,20 +84,8 @@ const systemsProjects: LabProject[] = [
       "Model Serving",
     ],
     href: "/software/systems/inference-runtime/",
-    previewCta: "View Demo",
-    githubHref: "https://github.com/simonwen7/adaptive_ai_inference_runtime",
-  },
-  {
-    id: "quantforge",
-    number: "04",
-    title: "QuantForge",
-    summary:
-      "A deterministic event-driven backtesting engine with causal signal timing, Decimal portfolio accounting, and a six-workspace research terminal over reproducible synthetic scenarios.",
-    technologies: ["Python", "FastAPI", "Next.js", "Event-Driven Simulation"],
-    href: "/software/systems/quantforge/",
     previewCta: "Explore Project",
-    githubHref: "https://github.com/simonwen7/QuantForge",
-    liveDemoHref: "https://quantforge-web-ashy.vercel.app/",
+    githubHref: "https://github.com/simonwen7/adaptive_ai_inference_runtime",
   },
 ];
 
@@ -79,7 +104,7 @@ const businessProjects: LabProject[] = [
       "EdTech",
     ],
     href: "/software/business/apa-formatter/",
-    previewCta: "Try Forma APA",
+    previewCta: "Explore Project",
     githubHref: "https://github.com/simonwen7/apa-doc-formatter",
     liveDemoHref: "https://apa-doc-formatter.vercel.app/",
   },
@@ -97,22 +122,9 @@ const businessProjects: LabProject[] = [
       "Resume Parsing",
     ],
     href: "/software/business/job-matcher/",
-    previewCta: "Try AI Resume Match",
+    previewCta: "Explore Project",
     githubHref: "https://github.com/simonwen7/ai-job-matcher",
     liveDemoHref: "https://ai-job-matcher-11.vercel.app/",
-  },
-  {
-    id: "local-first-workspace",
-    number: "03",
-    title: "Local-First Collaborative Workspace",
-    summary:
-      "A collaborative editor built on a custom operation-based CRDT, with IndexedDB durability and a two-replica browser lab that demonstrates deterministic convergence under concurrent edits.",
-    technologies: ["React", "TypeScript", "Custom CRDT", "IndexedDB"],
-    href: "/software/business/local-first-workspace/",
-    previewCta: "Explore Project",
-    githubHref:
-      "https://github.com/simonwen7/local-first-collaborative-workspace",
-    liveDemoHref: "https://local-first-collaborative-workspace.vercel.app/",
   },
 ];
 
@@ -126,7 +138,7 @@ export const softwareTracks: SoftwareTrack[] = [
     label: "Systems Engineering",
     shortLabel: "Systems",
     href: "/software/#systems",
-    focusLine: "Infrastructure · Storage · Retrieval · Runtime · Simulation",
+    focusLine: "Infrastructure · Events · Storage · Retrieval · Runtime",
     accent: "cyan",
     projects: systemsProjects,
   },
@@ -147,54 +159,37 @@ export const businessTrack = softwareTracks[1];
 export const softwareHubExperienceEntries: SoftwareHubExperienceEntry[] = [
   {
     number: "01",
-    role: "QA Automation Intern",
+    role: "Software Engineer",
     organization: "Tangam Systems",
     organizationContext: "Software company for casino analytics",
     period: "May 2026 — Aug 2026",
     description:
-      "Built and maintained end-to-end test automation for a casino analytics platform, validating user-facing workflows and regression behavior with Cypress and Cucumber.",
+      "Contributed full-stack features, API integrations, and product improvements to an existing casino analytics platform using React, Next.js, TypeScript, Python, and FastAPI.",
     achievements: [
-      "Created and maintained 200+ automated E2E test cases across 70+ product tickets.",
-      "Designed and validated 10+ automation scenarios across four major product areas during a focused testing cycle.",
+      "Implemented frontend and backend portions of an upload-driven Configuration feature, integrating React/Next.js interfaces with Python/FastAPI services.",
+      "Improved casino-map workflows through data transformation, API integration, fewer redundant frontend requests, and reduced response payload volume.",
+      "Debugged map loading, HTTP 404/500 errors, UI interactions, and Patron Insights / Top 10 Rated display and ranking issues.",
+      "Authored Python API and integration tests, supported regression verification, and submitted changes through GitLab merge requests and review.",
     ],
-    tags: [
-      "Cypress",
-      "JavaScript",
-      "Cucumber",
-      "E2E Testing",
-      "Regression Testing",
-    ],
-    proofPoints: [
-      { type: "metric", value: "200+", label: "Automated E2E test cases" },
-      { type: "metric", value: "70+", label: "Product tickets" },
-    ],
+    tags: ["React", "Next.js", "TypeScript", "Python", "FastAPI"],
+    proofPoints: [{ type: "relation", text: "Frontend · Backend" }],
   },
   {
     number: "02",
-    role: "QA Analyst Intern",
+    role: "Software Engineer in Test",
     organization: "Propel Holdings",
     organizationContext: "AI-powered fintech company",
     period: "Sep 2025 — Dec 2025",
     description:
-      "Used SQL-driven backend testing to validate customer and loan-application data across database, API, UI, and business-rule layers.",
+      "Developed JavaScript test automation for financial application workflows, validating user-facing functionality, backend behavior, and data consistency.",
     achievements: [
-      "Worked across 100+ QA tickets covering customer data, loan applications, and production financial workflows.",
-      "Built reusable SQL validation queries to reconcile backend records with API responses, UI output, and business rules.",
+      "Authored Cypress and Cucumber end-to-end tests for authentication, application flows, forms, charts, and regression scenarios.",
+      "Wrote automated assertions validating API responses and application business rules.",
+      "Verified consistency across UI displays, API data, and SQL-backed records using the team's existing SQL tools.",
+      "Supported ticket-based quality reviews and regression testing within established CI workflows.",
     ],
-    tags: [
-      "SQL",
-      "Backend Validation",
-      "API Testing",
-      "Data Integrity",
-      "Financial Systems",
-    ],
-    proofPoints: [
-      { type: "metric", value: "100+", label: "QA tickets" },
-      {
-        type: "relation",
-        text: "Database ↔ API ↔ UI ↔ Business Rules",
-      },
-    ],
+    tags: ["JavaScript", "Cypress", "Cucumber", "API Testing", "SQL"],
+    proofPoints: [{ type: "relation", text: "UI · API · SQL" }],
   },
   {
     number: "03",
@@ -216,8 +211,9 @@ export const softwareHubExperienceEntries: SoftwareHubExperienceEntry[] = [
       "Project Leadership",
     ],
     proofPoints: [
-      { type: "metric", value: "4", label: "Team members" },
-      { type: "metric", value: "Outstanding", label: "Overall performance" },
+      { type: "relation", text: "Python" },
+      { type: "relation", text: "Azure AI" },
+      { type: "relation", text: "Azure SQL" },
     ],
   },
 ];
@@ -264,6 +260,19 @@ export const inferenceRuntimeSubnavItems: LabSubnavItem[] = [
   { id: "residency", label: "Residency" },
   { id: "backend", label: "Backend" },
   { id: "reliability", label: "Reliability" },
+  { id: "proof", label: "Proof" },
+];
+
+/** StreamForge project subnav */
+export const streamforgeSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "architecture", label: "Architecture" },
+  { id: "outbox", label: "Outbox" },
+  { id: "reliability", label: "Reliability" },
+  { id: "worker", label: "Worker" },
+  { id: "analytics", label: "Analytics" },
+  { id: "demo", label: "Demo" },
   { id: "proof", label: "Proof" },
 ];
 

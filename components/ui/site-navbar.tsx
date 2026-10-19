@@ -23,9 +23,6 @@ export default function SiteNavbar() {
             <a href="#about" className="rounded-full px-4 py-2 text-sm text-white/75 transition hover:text-white">
               About
             </a>
-            <a href="#resume" className="rounded-full px-4 py-2 text-sm text-white/75 transition hover:text-white">
-              Resume
-            </a>
             <a href="#contact" className="rounded-full px-4 py-2 text-sm text-white/75 transition hover:text-white">
               Contact
             </a>

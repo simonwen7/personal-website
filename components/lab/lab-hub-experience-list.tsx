@@ -37,16 +37,15 @@ function ProofPoint({
 }) {
   if (point.type === "relation") {
     return (
-      <div
-        className="
-          rounded-lg border border-white/10 bg-black/20
-          px-3 py-2
-        "
+      <span
+        className={`
+          inline-flex rounded-full border px-2.5 py-1
+          text-[11px] font-medium
+          ${accentTag[accent]}
+        `}
       >
-        <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45">
-          {point.text}
-        </p>
-      </div>
+        {point.text}
+      </span>
     );
   }
 

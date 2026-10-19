@@ -15,7 +15,7 @@ import {
   hubSectionContainer,
 } from "@/components/lab/lab-hub-scale";
 
-type SectionId = "home" | "about" | "resume" | "contact";
+type SectionId = "home" | "about" | "contact";
 
 type RevealProps = {
   children: ReactNode;
@@ -189,16 +189,6 @@ function FixedLaboratoryBackground({
 
       <div
         className={`
-          absolute right-[0%] top-[14%] h-[720px] w-[720px]
-          rounded-full bg-blue-600/[0.095] blur-[215px]
-          transition-[opacity,transform] duration-[1500ms]
-          ease-[cubic-bezier(0.16,1,0.3,1)]
-          ${activeSection === "resume" ? visibleClass : hiddenClass}
-        `}
-      />
-
-      <div
-        className={`
           absolute left-1/2 top-1/2 h-[780px] w-[780px]
           -translate-x-1/2 -translate-y-1/2 rounded-full
           bg-emerald-500/[0.095] blur-[225px]
@@ -216,12 +206,7 @@ export default function HomeScrollExperience() {
     useState<SectionId>("home");
 
   useEffect(() => {
-    const sectionIds: SectionId[] = [
-      "home",
-      "resume",
-      "about",
-      "contact",
-    ];
+    const sectionIds: SectionId[] = ["home", "about", "contact"];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -263,12 +248,11 @@ export default function HomeScrollExperience() {
         <LabShell />
       </div>
 
-      {/* Resume
-          Physical gap target: match Resume → Beyond rhythm
-          (= previous section bottom pad + this section top pad).
-          Hero has no bottom pad, so Resume uses 2× top pad. */}
+      {/* Beyond the Lab preview.
+          Hero has no bottom pad, so this section keeps the larger top pad
+          the previous first section used. */}
       <section
-        id="resume"
+        id="about"
         className="
           relative z-10 scroll-mt-[88px] overflow-x-clip
           px-8
@@ -277,10 +261,6 @@ export default function HomeScrollExperience() {
           lg:pt-40 lg:pb-14
         "
       >
-        {/*
-          Visual-only black fade DOWN from the Hero boundary.
-          Absolute — does not contribute document-flow height.
-        */}
         <div
           aria-hidden="true"
           className="
@@ -290,101 +270,7 @@ export default function HomeScrollExperience() {
           "
         />
 
-        <SectionBlend theme="blue" rise="after-hero" />
-
-        <div className={hubSectionContainer}>
-          <Reveal>
-            <div
-              className={`${hubCardShell} flex flex-col justify-between gap-6 lg:flex-row lg:items-center`}
-            >
-              <div className="relative z-10">
-                <div className="flex items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="
-                      h-2 w-2 rounded-full bg-blue-300
-                      shadow-[0_0_14px_rgba(147,197,253,0.85)]
-                    "
-                  />
-                  <p className={`${homeEyebrow} text-blue-100/50`}>
-                    Career Archive
-                  </p>
-                </div>
-
-                <h2 className={homeCardTitle}>
-                  Experience, skills, and education.
-                </h2>
-
-                <p className={homeCardBody}>
-                  View my resume for a complete overview of my
-                  technical experience, education, projects, and
-                  professional background.
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {[
-                    "Software Engineering",
-                    "QA Automation",
-                    "Backend",
-                    "AI",
-                    "Robotics",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="
-                        rounded-full border border-blue-300/15
-                        bg-blue-400/[0.07] px-2.5 py-1
-                        text-[11px] text-blue-100/65
-                      "
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative z-10 flex shrink-0 flex-wrap gap-2.5">
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`
-                    ${hubButtonClass}
-                    border border-blue-300/20
-                    bg-blue-400/10 text-blue-50
-                    hover:bg-blue-400/20
-                  `}
-                >
-                  View Resume ↗
-                </a>
-
-                <a
-                  href="/resume.pdf"
-                  download
-                  className={`
-                    ${hubButtonClass}
-                    border border-white/10
-                    bg-white/[0.05] text-white/65
-                    hover:bg-white/[0.10] hover:text-white
-                  `}
-                >
-                  Download ↓
-                </a>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Beyond the Lab preview */}
-      <section
-        id="about"
-        className="
-          relative z-10 scroll-mt-[88px] overflow-x-clip
-          px-8 py-10 sm:py-12 lg:py-14
-        "
-      >
-        <SectionBlend theme="violet" />
+        <SectionBlend theme="violet" rise="after-hero" />
 
         <div className={hubSectionContainer}>
           <Reveal>
@@ -488,7 +374,7 @@ export default function HomeScrollExperience() {
                 </p>
               </div>
 
-              <div className="relative z-10 mt-7 grid gap-3 sm:grid-cols-2">
+              <div className="relative z-10 mt-7 grid gap-3 sm:grid-cols-3">
                 {[
                   {
                     label: "Email",
@@ -506,12 +392,6 @@ export default function HomeScrollExperience() {
                     label: "GitHub",
                     value: "View my code",
                     href: "https://github.com/simonwen7",
-                    external: true,
-                  },
-                  {
-                    label: "Resume",
-                    value: "View PDF",
-                    href: "/resume.pdf",
                     external: true,
                   },
                 ].map((item) => (
