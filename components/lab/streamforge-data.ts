@@ -6,7 +6,7 @@ export const streamforgeDemoUrl =
 export const streamforgeGithub = "https://github.com/simonwen7/StreamForge";
 
 export const streamforgeHero = {
-  eyebrow: "01 / StreamForge",
+  eyebrow: "02 / StreamForge",
   techLine: "Java 21 · Spring Boot · Kafka · PostgreSQL",
   title: "StreamForge",
   headline:

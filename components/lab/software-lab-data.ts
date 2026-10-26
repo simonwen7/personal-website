@@ -7,8 +7,20 @@ import type {
 
 const systemsProjects: LabProject[] = [
   {
-    id: "streamforge",
+    id: "actionworld-lite",
     number: "01",
+    title: "ActionWorld Lite",
+    summary:
+      "ActionWorld Lite is a lightweight, action-conditioned visual world model for simulated physical interactions. Given two consecutive RGB observations and a pusher action, it predicts the object's next pose and contact state, applies a contact-gated XY residual, and compares the predictions with MuJoCo physics. The trained models run on CPU through a publicly deployed interactive web application.",
+    technologies: ["PyTorch", "MuJoCo", "FastAPI", "Vercel"],
+    href: "/software/systems/actionworld-lite/",
+    previewCta: "Explore Project",
+    githubHref: "https://github.com/simonwen7/actionworld-lite",
+    liveDemoHref: "https://actionworld-lite.vercel.app",
+  },
+  {
+    id: "streamforge",
+    number: "02",
     title: "StreamForge",
     summary:
       "Java, Spring Boot, Kafka, and PostgreSQL telemetry processing, with transactional outbox delivery, idempotent processing, failure recovery, and a browser-local pipeline simulator.",
@@ -20,7 +32,7 @@ const systemsProjects: LabProject[] = [
   },
   {
     id: "quantforge",
-    number: "02",
+    number: "03",
     title: "QuantForge",
     summary:
       "A deterministic event-driven backtesting engine with causal signal timing, Decimal portfolio accounting, and a six-workspace research terminal over reproducible synthetic scenarios.",
@@ -32,7 +44,7 @@ const systemsProjects: LabProject[] = [
   },
   {
     id: "local-first-workspace",
-    number: "03",
+    number: "04",
     title: "Local-First Collaborative Workspace",
     summary:
       "A collaborative editor built on a custom operation-based CRDT, with IndexedDB durability and a two-replica browser lab that demonstrates deterministic convergence under concurrent edits.",
@@ -45,7 +57,7 @@ const systemsProjects: LabProject[] = [
   },
   {
     id: "artifact-store",
-    number: "04",
+    number: "05",
     title: "AI Artifact Store",
     summary:
       "A C++20 distributed artifact store for AI/ML workloads, built around content addressing, resumable transfer, replication, and failure recovery.",
@@ -56,7 +68,7 @@ const systemsProjects: LabProject[] = [
   },
   {
     id: "code-intelligence",
-    number: "05",
+    number: "06",
     title: "Graph-Augmented Code Intelligence Engine",
     summary:
       "Structural code intelligence built around program relationships, retrieval, and graph-aware context selection.",
@@ -72,7 +84,7 @@ const systemsProjects: LabProject[] = [
   },
   {
     id: "inference-runtime",
-    number: "06",
+    number: "07",
     title: "Adaptive AI Inference Runtime",
     summary:
       "A C++20 single-host inference control plane with workload-aware scheduling, residency-aware routing, worker-local dynamic batching, and optional real llama.cpp GGUF execution.",
@@ -261,6 +273,18 @@ export const inferenceRuntimeSubnavItems: LabSubnavItem[] = [
   { id: "backend", label: "Backend" },
   { id: "reliability", label: "Reliability" },
   { id: "proof", label: "Proof" },
+];
+
+/** ActionWorld Lite project subnav */
+export const actionworldLiteSubnavItems: LabSubnavItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "The Challenge" },
+  { id: "architecture", label: "How It Works" },
+  { id: "model", label: "AI Prediction" },
+  { id: "residual", label: "Motion Correction" },
+  { id: "evaluation", label: "Research Results" },
+  { id: "demo", label: "Live Demo" },
+  { id: "proof", label: "Testing & Limitations" },
 ];
 
 /** StreamForge project subnav */

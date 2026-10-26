@@ -25,7 +25,7 @@ export default function ArtifactStoreShowcase() {
           <div className="relative z-10 max-w-3xl">
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/40">
-                04 / AI Artifact Store
+                05 / AI Artifact Store
               </span>
             </div>
 

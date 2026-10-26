@@ -5,7 +5,7 @@ export const quantforgeDemoUrl = "https://quantforge-web-ashy.vercel.app/";
 export const quantforgeGithub = "https://github.com/simonwen7/QuantForge";
 
 export const quantforgeHero = {
-  eyebrow: "02 / QuantForge",
+  eyebrow: "03 / QuantForge",
   techLine: "Python · Event-Driven Simulation · Quant Research",
   title: "QuantForge",
   headline: "Backtests that can be replayed, hashed, and reproduced.",

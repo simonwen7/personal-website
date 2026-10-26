@@ -19,7 +19,7 @@ export default function LabProjectGrid({
   const gridRef = useRef<HTMLDivElement>(null);
   const columns =
     layout === "systems"
-      ? "md:grid-cols-2 xl:grid-cols-3"
+      ? "md:grid-cols-2 xl:grid-cols-3 md:[&>a:first-child]:col-span-2 xl:[&>a:first-child]:col-span-3"
       : "md:grid-cols-2";
 
   useEffect(() => {
@@ -35,15 +35,17 @@ export default function LabProjectGrid({
       cards.forEach((card) => {
         card.style.minHeight = "";
       });
-      if (!media.matches || cards.length === 0) {
+      // The first Systems card spans the full row and keeps its natural height.
+      const regular = cards.slice(1);
+      if (!media.matches || regular.length === 0) {
         return;
       }
-      const tallest = Math.max(...cards.map((card) => card.offsetHeight));
+      const tallest = Math.max(...regular.map((card) => card.offsetHeight));
       if (!Number.isFinite(tallest) || tallest <= 0) {
         return;
       }
       const next = `${Math.ceil(tallest)}px`;
-      cards.forEach((card) => {
+      regular.forEach((card) => {
         card.style.minHeight = next;
       });
     };

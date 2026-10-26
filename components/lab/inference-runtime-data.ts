@@ -12,7 +12,7 @@ export const inferenceRuntimeDemoUrl: string | undefined =
   "https://adaptiveaiinferenceruntime.vercel.app/";
 
 export const inferenceRuntimeHero = {
-  eyebrow: "06 / Adaptive AI Inference Runtime",
+  eyebrow: "07 / Adaptive AI Inference Runtime",
   techLine: "C++20 · Concurrency · AI Infrastructure",
   title: "Adaptive AI Inference Runtime",
   headline: "Schedule, batch, route, and serve inference under bounded resources.",
